@@ -22,6 +22,10 @@ public class MyWorld extends World
     
     private void prepare() {
         Title title = new Title();
-        addObject(title, 300, 200);
+        addObject(title, 300, 100);
+        PlayButton play = new PlayButton();
+        addObject(play, 300, 200);
+        SettingsButton settings = new SettingsButton();
+        addObject(settings, 300, 300);
     }
 }
