@@ -21,6 +21,7 @@ public class Settings_Page extends World
     }
     
     private void settings(){
-        
+        MusicOn musicOn = new MusicOn();
+        addObject(musicOn, 300, 100);
     }
 }
