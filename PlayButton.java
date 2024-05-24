@@ -14,7 +14,11 @@ public class PlayButton extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        if (Greenfoot.mouseClicked(this)) {
+            Greenfoot.setWorld(new Play_Page());
+            Play_Page play_page = (World)getWorld(); 
+            
+        }
     }
     
     
