@@ -28,4 +28,10 @@ public class MyWorld extends World
         SettingsButton settings = new SettingsButton();
         addObject(settings, 300, 300);
     }
+    
+    private void checkKeyPress() {
+        if (Greenfoot.isKeyDown("a")) {
+            setBackground("Speed-Busters-Hypercar.png");
+        }
+    }
 }
