@@ -14,6 +14,28 @@ public class Car1 extends Actor
      */
     public void act()
     {
-        //player1 car
+        checkKeyPress();
+        checkLocation();
+    }
+    
+    private void checkKeyPress() {
+        if (Greenfoot.isKeyDown("right")) {
+            setLocation(getX() + 4, getY());
+        }
+        if (Greenfoot.isKeyDown("left")) {
+            setLocation(getX() - 4, getY());
+        }
+        if (Greenfoot.isKeyDown("up")) {
+            setLocation(getX(), getY() - 4);
+        }
+        if (Greenfoot.isKeyDown("down")) {
+            setLocation(getX(), getY() + 4);
+        }
+    }
+    
+    private void checkLocation() {
+        if (getY() == 0) {
+            setLocation(116, 328);
+        }
     }
 }
