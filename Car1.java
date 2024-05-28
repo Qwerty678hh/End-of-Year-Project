@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Car extends Actor
+public class Car1 extends Actor
 {
     /**
      * Act - do whatever the Car wants to do. This method is called whenever
@@ -14,6 +14,6 @@ public class Car extends Actor
      */
     public void act()
     {
-        
+        //player1 car
     }
 }
