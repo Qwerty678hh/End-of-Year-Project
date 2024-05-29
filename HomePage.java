@@ -24,7 +24,7 @@ public class HomePage extends World
         Title title = new Title();
         addObject(title, 300, 100);
         PlayButton play = new PlayButton();
-        addObject(play, 300, 200);
+        addObject(play, 300, 250);
     }
     
     private void checkKeyPress() {
