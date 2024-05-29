@@ -38,4 +38,8 @@ public class Car1 extends Actor
             setLocation(116, 328);
         }
     }
+    
+    private void checkCollision() {
+        
+    }
 }
