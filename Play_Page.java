@@ -19,7 +19,8 @@ public class Play_Page extends World
     public Play_Page()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 600, 1); 
+        addObject(new RaceTrack(), 300, 0);
         addObject(new Car1(), 116, 328);
         addObject(new Car2(), 372, 328);
         car1Health = 100;

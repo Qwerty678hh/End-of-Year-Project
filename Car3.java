@@ -19,7 +19,7 @@ public class Car3 extends Actor
     }
     
     private void checkLocation() {
-        if (getY() == 399) {
+        if (getY() == 599) {
             getWorld().removeObject(this);
         }
     }
