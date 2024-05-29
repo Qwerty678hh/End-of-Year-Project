@@ -22,12 +22,15 @@ public class Play_Page extends World
         super(600, 400, 1); 
         addObject(new Car1(), 116, 328);
         addObject(new Car2(), 372, 328);
+        car1Health = 100;
+        car2Health = 100;
     }
     
     public void act() {
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
+        results();
     }
     
     public void addCar1Health(int damage) {
@@ -36,5 +39,16 @@ public class Play_Page extends World
     
     public void addCar2Health(int damage) {
         car2Health += damage;
+    }
+    
+    private void results() {
+        if (car1Health == 0) {
+            showText("Car1 has died in a crash! Car2 has won!", 300, 200);
+            Greenfoot.stop();
+        }
+        if (car2Health == 0) {
+            showText("Car2 has died in a crash! Car1 has won!", 300, 200);
+            Greenfoot.stop();
+        }
     }
 }

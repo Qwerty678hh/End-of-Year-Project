@@ -16,6 +16,7 @@ public class Car1 extends Actor
     {
         checkKeyPress();
         checkLocation();
+        checkCollision();
     }
     
     private void checkKeyPress() {
@@ -40,6 +41,10 @@ public class Car1 extends Actor
     }
     
     private void checkCollision() {
-        
+        if (isTouching(Car3.class)) {
+            Play_Page playPage = (Play_Page)getWorld();
+            playPage.addCar1Health(-10);
+            removeTouching(Car3.class);
+        }
     }
 }
