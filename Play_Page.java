@@ -11,7 +11,8 @@ public class Play_Page extends World
     // Instance variables
     private int car1Health;
     private int car2Health;
-    
+    private int score;
+    private int score2;
     /**
      * Constructor for objects of class Play_Page.
      * 
@@ -25,6 +26,10 @@ public class Play_Page extends World
         addObject(new Car2(), 372, 328);
         car1Health = 100;
         car2Health = 100;
+        score = 5;
+        showScore();
+        score2 = 5;
+        showScore2();
     }
     
     public void act() {
@@ -52,4 +57,27 @@ public class Play_Page extends World
             Greenfoot.stop();
         }
     }
+    public void addScore(int points) {
+        score += points;
+        showScore();
+        if(score <= 0) {
+            Greenfoot.playSound("game-over.wav");
+            Greenfoot.stop();
+        }
+    }
+    private void showScore() {
+        showText("Score: " + score, 80, 25);
+    }
+    public void addScore2(int points) {
+        score2 += points;
+        showScore2();
+        if(score2 <= 0) {
+            Greenfoot.playSound("game-over.wav");
+            Greenfoot.stop();
+        }
+        private void showScore2() {
+        showText("Score: " + score2, 180, 25);
+    }
+    }
+
 }
