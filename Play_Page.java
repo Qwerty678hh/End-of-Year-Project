@@ -75,9 +75,9 @@ public class Play_Page extends World
             Greenfoot.playSound("game-over.wav");
             Greenfoot.stop();
         }
-        private void showScore2() {
-        showText("Score: " + score2, 180, 25);
     }
+    private void showScore2() {
+        showText("Score: " + score2, 500, 25);
     }
 
 }
