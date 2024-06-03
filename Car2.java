@@ -15,6 +15,7 @@ public class Car2 extends Actor
     public void act()
     {
         checkKeyPress();
+        checkCollision();
     }
     
     private void checkKeyPress() {
@@ -29,6 +30,18 @@ public class Car2 extends Actor
         }
         if (Greenfoot.isKeyDown("s")) {
             setLocation(getX(), getY() + 4);
+        }
+    }
+    
+    private void checkCollision() {
+        if (isTouching(Car3.class)) {
+            Play_Page playPage = (Play_Page)getWorld();
+            playPage.addCar1Health(-10);
+            removeTouching(Car3.class);
+        }
+         if (isTouching(FinishLine.class)) {
+            Play_Page playPage = (Play_Page)getWorld();
+            playPage.win(1);
         }
     }
 }

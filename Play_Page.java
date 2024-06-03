@@ -11,6 +11,7 @@ public class Play_Page extends World
     // Instance variables
     private int car1Health;
     private int car2Health;
+    private int distance;
     
     /**
      * Constructor for objects of class Play_Page.
@@ -25,6 +26,7 @@ public class Play_Page extends World
         addObject(new Car2(), 372, 328);
         car1Health = 100;
         car2Health = 100;
+        distance = 9000000;
     }
     
     public void act() {
@@ -32,6 +34,7 @@ public class Play_Page extends World
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
         results();
+        countDistance(); 
     }
     
     public void addCar1Health(int damage) {
@@ -51,5 +54,32 @@ public class Play_Page extends World
             showText("Car2 has died in a crash! Car1 has won!", 300, 200);
             Greenfoot.stop();
         }
+    }
+    
+    public void win(int a) {
+        if (a == 0) {
+            showText("Car1 has won the race!", 300, 300);
+        }
+        else if (a == 1) {
+            showText("Car2 has won the race!", 300, 300);
+        }
+    }
+    
+    private void countDistance() {
+        if (distance > 0) {
+            distance -= 10000;
+        }
+        else if (distance == 0) {
+            Greenfoot.stop();
+        }
+        showDistance();
+        if (distance == 6000000) {
+            addObject(new FinishLine(), 300, 0); 
+        }
+        
+    }
+    
+    private void showDistance() {
+        showText("Distance: " + distance, 100, 100);
     }
 }
