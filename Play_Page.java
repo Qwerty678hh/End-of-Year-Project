@@ -13,6 +13,8 @@ public class Play_Page extends World
     private int car2Health;
     private int distance;
     
+    private int score;
+    private int score2;
     /**
      * Constructor for objects of class Play_Page.
      * 
@@ -27,9 +29,10 @@ public class Play_Page extends World
         car1Health = 100;
         car2Health = 100;
         distance = 9000000;
+        showScore();
+        showScore2();
     }
     
-    public void act() {
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
@@ -82,4 +85,27 @@ public class Play_Page extends World
     private void showDistance() {
         showText("Distance: " + distance, 100, 100);
     }
+    public void addScore(int points) {
+        score += points;
+        showScore();
+        if(score <= 0) {
+            Greenfoot.playSound("game-over.wav");
+            Greenfoot.stop();
+        }
+    }
+    private void showScore() {
+        showText("Score: " + score, 80, 25);
+    }
+    public void addScore2(int points) {
+        score2 += points;
+        showScore2();
+        if(score2 <= 0) {
+            Greenfoot.playSound("game-over.wav");
+            Greenfoot.stop();
+        }
+        private void showScore2() {
+        showText("Score: " + score2, 180, 25);
+    }
+    }
+
 }
