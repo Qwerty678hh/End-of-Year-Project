@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Car3 extends Actor
 {
+    public Car3(){
+        turn(180);
+    }
     /**
      * Act - do whatever the Car3 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
