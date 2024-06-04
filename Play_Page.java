@@ -36,6 +36,10 @@ public class Play_Page extends World
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
+        if (Greenfoot.getRandomNumber(1000) < 7)
+        {
+            addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
+        }
         results();
         countDistance(); 
     }
@@ -103,9 +107,9 @@ public class Play_Page extends World
             Greenfoot.playSound("game-over.wav");
             Greenfoot.stop();
         }
-        private void showScore2() {
-        showText("Score: " + score2, 180, 25);
     }
+    private void showScore2() {
+        showText("Score: " + score2, 500, 25);
     }
 
 }
