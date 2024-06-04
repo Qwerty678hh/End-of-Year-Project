@@ -14,9 +14,9 @@ public class SettingsButton extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        //only pops up when both cars are selected to start game - ryan
         if (Greenfoot.mouseClicked(this) || Greenfoot.isKeyDown("a")) {
-            Greenfoot.setWorld(new Play_Page());
+            //Greenfoot.setWorld(new Play_Page(p1,p2));
         }
     }
 }

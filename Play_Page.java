@@ -19,14 +19,14 @@ public class Play_Page extends World
      * Constructor for objects of class Play_Page.
      * 
      */
-    public Play_Page()
+    public Play_Page(Car1 p1, Car2 p2)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
         addObject(new RaceTrack(), 150, 0);
         addObject(new RaceTrack(), 450, 0);
-        addObject(new Car1(), 372, 328);
-        addObject(new Car2(), 116, 328);
+        addObject(p1, 372, 328);
+        addObject(p2, 116, 328);
         car1Health = 100;
         car2Health = 100;
         distance = 9000000;
