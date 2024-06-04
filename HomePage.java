@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HomePage extends World
 {
-
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -25,11 +24,5 @@ public class HomePage extends World
         addObject(title, 300, 100);
         PlayButton play = new PlayButton();
         addObject(play, 300, 250);
-    }
-    
-    private void checkKeyPress() {
-        if (Greenfoot.isKeyDown("a")) {
-            setBackground("Speed-Busters-Hypercar.png");
-        }
     }
 }

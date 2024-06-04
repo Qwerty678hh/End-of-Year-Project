@@ -23,7 +23,7 @@ public class RaceTrack extends Actor
     {
         setLocation(getX(), getY() + 4);
         if (getY() == 599) {
-            setLocation(300,0);
+            setLocation(getX(),0);
         }
     }
 }
