@@ -32,7 +32,7 @@ public class Play_Page extends World
         showScore();
         showScore2();
     }
-    
+    public void act() {
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
