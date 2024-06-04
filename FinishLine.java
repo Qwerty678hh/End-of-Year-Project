@@ -20,7 +20,7 @@ public class FinishLine extends Actor
     
     public void act()
     {
-        setLocation(getX(), getY() + 4);
+        setLocation(getX(), getY() + 2);
         if (getY() == 599) {
             getWorld().removeObject(this);
         }
