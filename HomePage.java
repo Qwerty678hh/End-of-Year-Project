@@ -26,10 +26,4 @@ public class HomePage extends World
         PlayButton play = new PlayButton();
         addObject(play, 300, 250);
     }
-    
-    private void checkKeyPress() {
-        if (Greenfoot.isKeyDown("a")) {
-            setBackground("Speed-Busters-Hypercar.png");
-        }
-    }
 }
