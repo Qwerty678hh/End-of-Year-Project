@@ -13,15 +13,18 @@ public class Car2 extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int speed;
+    private int oilTime; 
     
     public Car2() {
         speed = 4; 
+        oilTime = 10000;
     }
     
     public void act()
     {
         checkKeyPress();
         checkCollision();
+        oilCounter();
     }
     
     private void checkKeyPress() {
@@ -51,6 +54,16 @@ public class Car2 extends Actor
         if (isTouching(OilSpill.class)) {
             speed = 1;
             removeTouching(OilSpill.class);
+        }
+    }
+    
+    private void oilCounter() {
+        if (oilTime == 0) {
+            speed = 4;
+            oilTime = 10000;
+        }
+        else {
+            oilTime -= 100;
         }
     }
 }

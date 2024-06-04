@@ -46,6 +46,10 @@ public class Play_Page extends World
         {
             addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
         }
+        if (Greenfoot.getRandomNumber(1000) < 7)
+        {
+            addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
+        }
         showScore();
         showScore2();
         results();
