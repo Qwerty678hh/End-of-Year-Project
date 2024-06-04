@@ -19,12 +19,6 @@ public class Settings_Page extends World
         super(600, 400, 1);
         prepare();
         act();
-        //trying to create image for blueCar on screen
-        GreenfootImage blueCar = new GreenfootImage("car01-n.png");
-        getBackground().drawImage(blueCar, 50, 200);
-        //trying to create image for redcar on screen
-        GreenfootImage redCar = new GreenfootImage("car02-n.png");
-        getBackground().drawImage(redCar, 100, 200);
     }
     
     public void act(){
@@ -34,7 +28,21 @@ public class Settings_Page extends World
     }
     
     public void prepare(){
-        settingsButton start = new settingsButton();
-        addObject(start, 300, 250);
+        //trying to create image for blueCar on screen
+        GreenfootImage blueCar = new GreenfootImage("car01-n.png");
+        getBackground().drawImage(blueCar, 50, 200);
+        //trying to create image for redcar on screen
+        GreenfootImage redCar = new GreenfootImage("car02-n.png");
+        getBackground().drawImage(redCar, 200, 200);
+        //trying to create image for ambulance on screen
+        GreenfootImage ambulance = new GreenfootImage("ambulance.png");
+        ambulance.scale(ambulance.getWidth() / 4, ambulance.getHeight() / 4);
+        ambulance.rotate(90);
+        getBackground().drawImage(ambulance, 325, 190);
+        //trying to create image for batmobile on screen
+        GreenfootImage batmobile = new GreenfootImage("batmobile.png");
+        batmobile.scale(ambulance.getWidth(), ambulance.getHeight());
+        batmobile.rotate(180);
+        getBackground().drawImage(batmobile, 450, 190);
     }
 }
