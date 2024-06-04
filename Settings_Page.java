@@ -17,15 +17,24 @@ public class Settings_Page extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+        prepare();
         act();
+        //trying to create image for blueCar on screen
+        GreenfootImage blueCar = new GreenfootImage("car01-n.png");
+        getBackground().drawImage(blueCar, 50, 200);
         //trying to create image for redcar on screen
-        //GreenfootImage redcar = new GreenfootImage("car01-n.png");
-        //Settings_Page.getBackground().drawImage(redcar, 100, 100);
+        GreenfootImage redCar = new GreenfootImage("car02-n.png");
+        getBackground().drawImage(redCar, 100, 200);
     }
     
     public void act(){
         if(player == 0){
             showText("Player 1, pick a car", 300, 100);
         }
+    }
+    
+    public void prepare(){
+        settingsButton start = new settingsButton();
+        addObject(start, 300, 250);
     }
 }

@@ -15,7 +15,7 @@ public class Car1 extends Actor
     public void act()
     {
         checkKeyPress();
-        checkLocation();
+        //checkLocation();
         checkCollision();
     }
     
