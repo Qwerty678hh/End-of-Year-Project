@@ -19,6 +19,12 @@ public class HomePage extends World
         prepare();
     }
     
+    public void act() {
+        if (Greenfoot.isKeyDown("b")) {
+            setBackground("bluerock.jpg");
+        }
+    }
+    
     private void prepare() {
         Title title = new Title();
         addObject(title, 300, 100);
