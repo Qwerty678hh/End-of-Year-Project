@@ -63,7 +63,7 @@ public class Car2 extends Actor
             removeTouching(OilSpill.class);
         }
     }
-    
+}   
     private void oilCounter() {
         if (oilTime == 0) {
             speed = 4;
