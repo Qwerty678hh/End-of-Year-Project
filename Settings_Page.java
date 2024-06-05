@@ -48,13 +48,12 @@ public class Settings_Page extends World
         getBackground().drawImage(batmobile2, 350, 50);
         //numberplacements - ryan
         //tried to put numbers on screen to indicate which car, but does not work - ryan
-        /*GreenfootImage num1 = new GreenfootImage("num1.png");
-        num1.scale(num1.getWidth()*10, num1.getHeight()*10);
-        getBackground().drawImage(num1, 225, 125);
+        GreenfootImage num1 = new GreenfootImage("num1.png");
+        num1.scale(num1.getWidth()/20, num1.getHeight()/20);
+        getBackground().drawImage(num1, 20, 300);
         GreenfootImage num2 = new GreenfootImage("num2.png");
-        num2.scale(num2.getWidth()*10, num2.getHeight()*10);
-        getBackground().drawImage(num2, 225, 125);
-        */
+        num2.scale(num1.getWidth(), num1.getHeight());
+        getBackground().drawImage(num2, 500, 300);
     }
 
     public void act(){

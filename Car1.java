@@ -46,7 +46,11 @@ public class Car1 extends Actor
             setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("down")) {
+<<<<<<< Updated upstream
             setLocation(getX(), getY() + speed);
+=======
+            setLocation(getX(), getY() + 6);
+>>>>>>> Stashed changes
         }
     }
     
