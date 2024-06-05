@@ -19,6 +19,7 @@ dependency1.from=Play_Page
 dependency1.to=Car1
 dependency1.type=UsesDependency
 dependency10.from=HomePage
+<<<<<<< Updated upstream
 dependency10.to=Title
 dependency10.type=UsesDependency
 dependency11.from=HomePage
@@ -66,6 +67,37 @@ dependency23.type=UsesDependency
 dependency24.from=PlayButton
 dependency24.to=Car2
 dependency24.type=UsesDependency
+=======
+dependency10.to=PlayButton
+dependency10.type=UsesDependency
+dependency11.from=Car2
+dependency11.to=Play_Page
+dependency11.type=UsesDependency
+dependency12.from=Car2
+dependency12.to=Car3
+dependency12.type=UsesDependency
+dependency13.from=Car2
+dependency13.to=FinishLine
+dependency13.type=UsesDependency
+dependency14.from=Car1
+dependency14.to=Play_Page
+dependency14.type=UsesDependency
+dependency15.from=Car1
+dependency15.to=Car3
+dependency15.type=UsesDependency
+dependency16.from=Car1
+dependency16.to=FinishLine
+dependency16.type=UsesDependency
+dependency17.from=redCar
+dependency17.to=Settings_Page
+dependency17.type=UsesDependency
+dependency18.from=PlayButton
+dependency18.to=Settings_Page
+dependency18.type=UsesDependency
+dependency2.from=Play_Page
+dependency2.to=Car2
+dependency2.type=UsesDependency
+>>>>>>> Stashed changes
 dependency3.from=Play_Page
 dependency3.to=RaceTrack
 dependency3.type=UsesDependency
@@ -84,6 +116,7 @@ dependency7.type=UsesDependency
 dependency8.from=Settings_Page
 dependency8.to=Car1
 dependency8.type=UsesDependency
+<<<<<<< Updated upstream
 dependency9.from=Settings_Page
 dependency9.to=Car2
 dependency9.type=UsesDependency
@@ -94,6 +127,18 @@ editor.fx.0.y=101
 height=830
 package.numDependencies=24
 package.numTargets=18
+=======
+dependency9.from=HomePage
+dependency9.to=Title
+dependency9.type=UsesDependency
+editor.fx.0.height=728
+editor.fx.0.width=800
+editor.fx.0.x=651
+editor.fx.0.y=107
+height=788
+package.numDependencies=18
+package.numTargets=16
+>>>>>>> Stashed changes
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -235,7 +280,14 @@ target9.width=120
 target9.x=0
 target9.y=0
 version=3.1.0
+<<<<<<< Updated upstream
 width=1550
 world.lastInstantiated=HomePage
 xPosition=0
 yPosition=0
+=======
+width=830
+world.lastInstantiated=Settings_Page
+xPosition=7
+yPosition=52
+>>>>>>> Stashed changes
