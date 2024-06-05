@@ -12,36 +12,70 @@ public class Car2 extends Actor
      * Act - do whatever the Car2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private int speed;
+    private int oilTime; 
+    
+    public Car2() {
+        speed = 4; 
+        oilTime = 10000;
+    }
+    
     public void act()
     {
         checkKeyPress();
         checkCollision();
+        oilCounter();
     }
     
     private void checkKeyPress() {
         if (Greenfoot.isKeyDown("d")) {
-            setLocation(getX() + 4, getY());
+            setLocation(getX() + speed, getY());
         }
         if (Greenfoot.isKeyDown("a")) {
-            setLocation(getX() - 4, getY());
+            setLocation(getX() - speed, getY());
         }
         if (Greenfoot.isKeyDown("w")) {
-            setLocation(getX(), getY() - 4);
+            setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("s")) {
-            setLocation(getX(), getY() + 4);
+            setLocation(getX(), getY() + speed);
         }
     }
     
     private void checkCollision() {
+        Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
-            Play_Page playPage = (Play_Page)getWorld();
             playPage.addCar1Health(-10);
             removeTouching(Car3.class);
         }
-         if (isTouching(FinishLine.class)) {
-            Play_Page playPage = (Play_Page)getWorld();
+         if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(1);
+        }
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if (isTouching(SpeedBoost.class)) {
+            removeTouching(SpeedBoost.class);
+            setLocation(getX(), getY() -100);
+=======
+=======
+>>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+        if (isTouching(OilSpill.class)) {
+            speed = 1;
+            removeTouching(OilSpill.class);
+        }
+    }
+    
+    private void oilCounter() {
+        if (oilTime == 0) {
+            speed = 4;
+            oilTime = 10000;
+        }
+        else {
+            oilTime -= 100;
+<<<<<<< HEAD
+>>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+=======
+>>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
         }
     }
 }

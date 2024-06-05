@@ -12,25 +12,41 @@ public class Car1 extends Actor
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private int speed;
+    private int oilTime;
+    private int speedTime;
+    private int a;
+    private int b;
+    
+    public Car1() {
+        speed = 4;
+        oilTime = 1000;
+        speedTime = 1000;
+        a = 0;
+        b = 0;
+    }
+    
     public void act()
     {
         checkKeyPress();
-        checkLocation();
+        //checkLocation();
         checkCollision();
+        oilCounter();
+        speedCounter();
     }
     
     private void checkKeyPress() {
         if (Greenfoot.isKeyDown("right")) {
-            setLocation(getX() + 4, getY());
+            setLocation(getX() + speed, getY());
         }
         if (Greenfoot.isKeyDown("left")) {
-            setLocation(getX() - 4, getY());
+            setLocation(getX() - speed, getY());
         }
         if (Greenfoot.isKeyDown("up")) {
-            setLocation(getX(), getY() - 4);
+            setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("down")) {
-            setLocation(getX(), getY() + 4);
+            setLocation(getX(), getY() + speed);
         }
     }
     
@@ -41,14 +57,57 @@ public class Car1 extends Actor
     }
     
     private void checkCollision() {
+        Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
-            Play_Page playPage = (Play_Page)getWorld();
             playPage.addCar1Health(-10);
             removeTouching(Car3.class);
         }
-        if (isTouching(FinishLine.class)) {
-            Play_Page playPage = (Play_Page)getWorld();
+        if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(0);
+        }
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if (isTouching(SpeedBoost.class)) {
+            removeTouching(SpeedBoost.class);
+            setLocation(getX(), getY() -100);
+=======
+=======
+>>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+        if (isTouching(OilSpill.class)) {
+            speed = 1;
+            a = 1;
+            removeTouching(OilSpill.class);
+        }
+        if (isTouching(SpeedBoost.class)) {
+            speed = 8;
+            b = 1; 
+            removeTouching(SpeedBoost.class);
+        }
+    }
+    
+    private void oilCounter() {
+        if (oilTime == 0) {
+            speed = 4;
+            oilTime = 1000;
+            a = 0;
+        }
+        else if (a == 1) {
+            oilTime -= 50;
+        }
+    }
+    
+    private void speedCounter() {
+        if (speedTime == 0) {
+            speed = 4;
+            speedTime = 1000;
+            b = 0;
+        }
+        else if (b == 1) {
+            speedTime -= 10;
+<<<<<<< HEAD
+>>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+=======
+>>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
         }
     }
 }
