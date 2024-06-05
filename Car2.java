@@ -22,6 +22,10 @@ public class Car2 extends Actor
     
     public void act()
     {
+        Play_Page playPage = (Play_Page)getWorld();
+        if (playPage.countDistance()) {
+            getWorld().removeObject(this);
+        }
         checkKeyPress();
         checkCollision();
         oilCounter();

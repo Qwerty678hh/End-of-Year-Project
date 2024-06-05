@@ -28,6 +28,10 @@ public class Car1 extends Actor
     
     public void act()
     {
+        Play_Page playPage = (Play_Page)getWorld();
+        if (playPage.countDistance()) {
+            getWorld().removeObject(this);
+        }
         checkKeyPress();
         //checkLocation();
         checkCollision();

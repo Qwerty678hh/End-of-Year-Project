@@ -68,6 +68,6 @@ public class Settings_Page extends World
     }
     
     public static void redclick(){
-        //Car1.setImage("car01-n.png");
+        //setImage("car01-n.png");
     }
 }
