@@ -28,8 +28,7 @@ public class Settings_Page extends World
         GreenfootImage blueCar = new GreenfootImage("car01-n.png");
         getBackground().drawImage(blueCar, 225, 125);
         //trying to create image for redcar on screen - ryan
-        GreenfootImage redCar = new GreenfootImage("car02-n.png");
-        getBackground().drawImage(redCar, 225, 270);
+        addObject(new redCar(), 240, 310);
         //trying to create image for ambulance on screen - ryan
         GreenfootImage ambulance = new GreenfootImage("ambulance.png");
         ambulance.scale(ambulance.getWidth() / 4, ambulance.getHeight() / 4);
@@ -42,18 +41,21 @@ public class Settings_Page extends World
         getBackground().drawImage(batmobile, 318, 260);
         //just an example of layout - ryan
         //once a car is picked, it will appear large on each side - ryan
+        /*
+        ex:
         GreenfootImage batmobile2 = new GreenfootImage("batmobile.png");
         batmobile2.scale(batmobile2.getWidth()/4, batmobile2.getHeight()/4);
         batmobile2.rotate(180);
         getBackground().drawImage(batmobile2, 350, 50);
+        */
         //numberplacements - ryan
         //tried to put numbers on screen to indicate which car, but does not work - ryan
         GreenfootImage num1 = new GreenfootImage("num1.png");
-        num1.scale(num1.getWidth()/20, num1.getHeight()/20);
+        num1.scale(num1.getWidth()/23, num1.getHeight()/23);
         getBackground().drawImage(num1, 20, 300);
         GreenfootImage num2 = new GreenfootImage("num2.png");
         num2.scale(num1.getWidth(), num1.getHeight());
-        getBackground().drawImage(num2, 500, 300);
+        getBackground().drawImage(num2, 510, 300);
     }
 
     public void act(){
@@ -66,7 +68,7 @@ public class Settings_Page extends World
         return player;
     }
     
-    public static void redclick(){
-        //Car1.setImage("car01-n.png");
+    public void redclick(){
+        p1.setImage("car01-n.png");
     }
 }
