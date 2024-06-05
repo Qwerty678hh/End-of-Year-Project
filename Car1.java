@@ -65,14 +65,10 @@ public class Car1 extends Actor
         if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(0);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (isTouching(SpeedBoost.class)) {
             removeTouching(SpeedBoost.class);
             setLocation(getX(), getY() -100);
-=======
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+
         if (isTouching(OilSpill.class)) {
             speed = 1;
             a = 1;
@@ -104,10 +100,7 @@ public class Car1 extends Actor
         }
         else if (b == 1) {
             speedTime -= 10;
-<<<<<<< HEAD
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+
         }
     }
 }
