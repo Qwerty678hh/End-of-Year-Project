@@ -16,12 +16,14 @@ public class redCar extends characterselect
      * Act - do whatever the redCar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void updateimage(){
+    public void updateImage(){
         // Add your action code here.
+        /*
         if (Greenfoot.mouseClicked(this) || Greenfoot.isKeyDown("a")) {
             if(Settings_Page.getplayer()==0){
                 Settings_Page.redclick();
             }
         }
+        */
     }
 }

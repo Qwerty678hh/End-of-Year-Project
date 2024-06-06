@@ -1,117 +1,79 @@
 #Greenfoot project file
-class.Car1.image=car01-n.png
-class.Car2.image=car02-n.png
 class.Car3.image=car03-n.png
-class.FinishLine.image=Screenshot\ 2024-06-03\ 125742.png
 class.HomePage.image=Racing_Background.jpg
 class.MusicOn.image=Screenshot\ 2024-05-23\ at\ 10.59.29\ AM.png
+class.MyWorld.image=Racing_Background.jpg
 class.OilSpill.image=OilSpill.png
 class.PlayButton.image=Screenshot\ 2024-05-22\ 130534.png
 class.Play_Page.image=Screenshot\ 2024-05-28\ 185811.png
+class.Player1.image=Empty.png
+class.Player2.image=Empty.png
 class.RaceTrack.image=racetrack.png
-<<<<<<< HEAD
-<<<<<<< HEAD
-class.Settings_Page.image=laned-road.jpg
-class.SpeedBoost.image=karo.png
-=======
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-class.Rocket.image=rocket.png
-class.SettingsButton.image=Screenshot\ 2024-05-22\ 130534.png
 class.Settings_Page.image=bluerock.jpg
-class.SpeedBoost.image=R-removebg-preview.png
-<<<<<<< HEAD
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
 class.Title.image=Screenshot\ 2024-05-22\ 124714.png
+class.batCar.image=batmobile.png
+class.blueCar.image=car01-n.png
 class.redCar.image=car02-n.png
 dependency1.from=Play_Page
-dependency1.to=Car1
+dependency1.to=Player1
 dependency1.type=UsesDependency
-dependency10.from=HomePage
-dependency10.to=Title
+dependency10.from=Settings_Page
+dependency10.to=redCar
 dependency10.type=UsesDependency
-dependency11.from=HomePage
-dependency11.to=PlayButton
+dependency11.from=Settings_Page
+dependency11.to=blueCar
 dependency11.type=UsesDependency
-dependency12.from=Car2
-dependency12.to=Play_Page
+dependency12.from=Settings_Page
+dependency12.to=batCar
 dependency12.type=UsesDependency
-dependency13.from=Car2
-<<<<<<< HEAD
-<<<<<<< HEAD
-dependency13.to=SpeedBoost
+dependency13.from=HomePage
+dependency13.to=Title
 dependency13.type=UsesDependency
-dependency14.from=Car1
-dependency14.to=Play_Page
+dependency14.from=HomePage
+dependency14.to=PlayButton
 dependency14.type=UsesDependency
-dependency15.from=Car1
-dependency15.to=Car3
+dependency15.from=PlayButton
+dependency15.to=Play_Page
 dependency15.type=UsesDependency
-dependency16.from=Car1
-dependency16.to=FinishLine
+dependency16.from=PlayButton
+dependency16.to=Player1
 dependency16.type=UsesDependency
-dependency17.from=Car1
-dependency17.to=SpeedBoost
+dependency17.from=PlayButton
+dependency17.to=Player2
 dependency17.type=UsesDependency
-dependency18.from=PlayButton
-dependency18.to=Settings_Page
+dependency18.from=Player2
+dependency18.to=Play_Page
 dependency18.type=UsesDependency
-=======
-dependency13.to=Car3
-dependency13.type=UsesDependency
-dependency14.from=Car2
-dependency14.to=FinishLine
-dependency14.type=UsesDependency
-dependency15.from=Car2
-dependency15.to=OilSpill
-dependency15.type=UsesDependency
-dependency16.from=Car1
-=======
-dependency13.to=Car3
-dependency13.type=UsesDependency
-dependency14.from=Car2
-dependency14.to=FinishLine
-dependency14.type=UsesDependency
-dependency15.from=Car2
-dependency15.to=OilSpill
-dependency15.type=UsesDependency
-dependency16.from=Car1
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-dependency16.to=Play_Page
-dependency16.type=UsesDependency
-dependency17.from=Car1
-dependency17.to=Car3
-dependency17.type=UsesDependency
-dependency18.from=Car1
-dependency18.to=FinishLine
-dependency18.type=UsesDependency
-dependency19.from=Car1
-dependency19.to=OilSpill
+dependency19.from=Player2
+dependency19.to=Car3
 dependency19.type=UsesDependency
-<<<<<<< HEAD
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
 dependency2.from=Play_Page
-dependency2.to=Car2
+dependency2.to=Player2
 dependency2.type=UsesDependency
-dependency20.from=Car1
-dependency20.to=SpeedBoost
+dependency20.from=Player2
+dependency20.to=FinishLine
 dependency20.type=UsesDependency
-dependency21.from=redCar
-dependency21.to=Settings_Page
+dependency21.from=Player2
+dependency21.to=SpeedBoost
 dependency21.type=UsesDependency
-dependency22.from=PlayButton
-dependency22.to=Play_Page
+dependency22.from=Player2
+dependency22.to=OilSpill
 dependency22.type=UsesDependency
-dependency23.from=PlayButton
-dependency23.to=Car1
+dependency23.from=Player1
+dependency23.to=Play_Page
 dependency23.type=UsesDependency
-dependency24.from=PlayButton
-dependency24.to=Car2
+dependency24.from=Player1
+dependency24.to=Car3
 dependency24.type=UsesDependency
+dependency25.from=Player1
+dependency25.to=FinishLine
+dependency25.type=UsesDependency
+dependency26.from=Player1
+dependency26.to=SpeedBoost
+dependency26.type=UsesDependency
+dependency27.from=Player1
+dependency27.to=OilSpill
+dependency27.type=UsesDependency
 dependency3.from=Play_Page
 dependency3.to=RaceTrack
 dependency3.type=UsesDependency
@@ -122,62 +84,24 @@ dependency5.from=Play_Page
 dependency5.to=SpeedBoost
 dependency5.type=UsesDependency
 dependency6.from=Play_Page
-<<<<<<< HEAD
-<<<<<<< HEAD
 dependency6.to=OilSpill
-=======
-dependency6.to=SpeedBoost
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-dependency6.to=SpeedBoost
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
 dependency6.type=UsesDependency
 dependency7.from=Play_Page
 dependency7.to=FinishLine
 dependency7.type=UsesDependency
-<<<<<<< HEAD
-<<<<<<< HEAD
-dependency8.from=HomePage
-dependency8.to=Title
-dependency8.type=UsesDependency
-dependency9.from=HomePage
-dependency9.to=PlayButton
-dependency9.type=UsesDependency
-editor.fx.0.height=728
-editor.fx.0.width=800
-editor.fx.0.x=640
-editor.fx.0.y=99
-height=788
-package.numDependencies=18
-package.numTargets=16
-=======
 dependency8.from=Settings_Page
-dependency8.to=Car1
+dependency8.to=Player1
 dependency8.type=UsesDependency
 dependency9.from=Settings_Page
-dependency9.to=Car2
+dependency9.to=Player2
 dependency9.type=UsesDependency
-editor.fx.0.height=728
-editor.fx.0.width=800
-=======
-dependency8.from=Settings_Page
-dependency8.to=Car1
-dependency8.type=UsesDependency
-dependency9.from=Settings_Page
-dependency9.to=Car2
-dependency9.type=UsesDependency
-editor.fx.0.height=728
-editor.fx.0.width=800
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-editor.fx.0.x=400
-editor.fx.0.y=101
-height=830
-package.numDependencies=24
-package.numTargets=18
-<<<<<<< HEAD
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+editor.fx.0.height=628
+editor.fx.0.width=839
+editor.fx.0.x=606
+editor.fx.0.y=229
+height=743
+package.numDependencies=27
+package.numTargets=21
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -188,7 +112,7 @@ publish.title=
 publish.url=
 readme.height=60
 readme.name=@README
-readme.width=49
+readme.width=48
 readme.x=10
 readme.y=10
 simulation.speed=50
@@ -200,210 +124,147 @@ target1.width=120
 target1.x=0
 target1.y=0
 target10.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
 target10.name=RaceTrack
-=======
-target10.name=Rocket
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-target10.name=Rocket
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
 target10.showInterface=false
 target10.type=ClassTarget
 target10.width=120
 target10.x=0
 target10.y=0
 target11.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
-target11.name=HomePage
-=======
-target11.name=RaceTrack
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-target11.name=RaceTrack
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+target11.name=settingsButton
 target11.showInterface=false
 target11.type=ClassTarget
 target11.width=120
 target11.x=0
 target11.y=0
 target12.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
-target12.name=Car
-=======
 target12.name=HomePage
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-target12.name=HomePage
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
 target12.showInterface=false
 target12.type=ClassTarget
 target12.width=120
 target12.x=0
 target12.y=0
 target13.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
-target13.name=FinishLine
-=======
-target13.name=settingsButton
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-target13.name=settingsButton
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+target13.name=Car
 target13.showInterface=false
 target13.type=ClassTarget
 target13.width=120
 target13.x=0
 target13.y=0
 target14.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
-target14.name=PlayButton
-=======
-target14.name=Car
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-target14.name=Car
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+target14.name=FinishLine
 target14.showInterface=false
 target14.type=ClassTarget
 target14.width=120
 target14.x=0
 target14.y=0
 target15.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
-target15.name=SpeedBoost
-=======
-target15.name=FinishLine
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-target15.name=FinishLine
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+target15.name=blueCar
 target15.showInterface=false
 target15.type=ClassTarget
 target15.width=120
 target15.x=0
 target15.y=0
 target16.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
-target16.name=MyWorld
+target16.name=batCar
 target16.showInterface=false
 target16.type=ClassTarget
 target16.width=120
 target16.x=0
 target16.y=0
-=======
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-target16.name=SettingsButton
-target16.showInterface=false
-target16.type=ClassTarget
-target16.width=140
-target16.x=0
-target16.y=0
 target17.height=70
-target17.name=PlayButton
+target17.name=SpeedBoost
 target17.showInterface=false
 target17.type=ClassTarget
 target17.width=120
 target17.x=0
 target17.y=0
 target18.height=70
-target18.name=SpeedBoost
+target18.name=PlayButton
 target18.showInterface=false
 target18.type=ClassTarget
 target18.width=120
 target18.x=0
 target18.y=0
-<<<<<<< HEAD
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+target19.height=70
+target19.name=Player2
+target19.showInterface=false
+target19.type=ClassTarget
+target19.width=120
+target19.x=0
+target19.y=0
 target2.height=70
-target2.name=Car2
+target2.name=Play_Page
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=120
 target2.x=0
 target2.y=0
+target20.height=70
+target20.name=Player1
+target20.showInterface=false
+target20.type=ClassTarget
+target20.width=120
+target20.x=0
+target20.y=0
+target21.height=70
+target21.name=MyWorld
+target21.showInterface=false
+target21.type=ClassTarget
+target21.width=120
+target21.x=0
+target21.y=0
 target3.height=70
-target3.name=Car1
+target3.name=redCar
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
 target3.x=0
 target3.y=0
 target4.height=70
-target4.name=Play_Page
+target4.name=OilSpill
 target4.showInterface=false
 target4.type=ClassTarget
 target4.width=120
 target4.x=0
 target4.y=0
 target5.height=70
-target5.name=redCar
+target5.name=characterselect
 target5.showInterface=false
-target5.type=ClassTarget
+target5.type=AbstractTarget
 target5.width=120
 target5.x=0
 target5.y=0
 target6.height=70
-target6.name=OilSpill
+target6.name=Settings_Page
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=120
 target6.x=0
 target6.y=0
 target7.height=70
-target7.name=Settings_Page
+target7.name=MusicOn
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=120
 target7.x=0
 target7.y=0
 target8.height=70
-target8.name=MusicOn
+target8.name=Title
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=120
 target8.x=0
 target8.y=0
 target9.height=70
-<<<<<<< HEAD
-<<<<<<< HEAD
-target9.name=MusicOff
-=======
-target9.name=Title
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
-target9.name=Title
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+target9.name=Rocket
 target9.showInterface=false
 target9.type=ClassTarget
 target9.width=120
 target9.x=0
 target9.y=0
 version=3.1.0
-<<<<<<< HEAD
-<<<<<<< HEAD
-width=830
-world.lastInstantiated=Play_Page
-xPosition=16
-yPosition=52
-=======
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-width=1550
-world.lastInstantiated=HomePage
-xPosition=0
-yPosition=0
-<<<<<<< HEAD
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
-=======
->>>>>>> 9e2e1491d4019ade770548f795f4975f899e799c
+width=823
+world.lastInstantiated=Settings_Page
+xPosition=2
+yPosition=42

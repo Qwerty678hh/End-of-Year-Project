@@ -15,7 +15,7 @@ public class PlayButton extends Actor
     public void act()
     {
         if (Greenfoot.mouseClicked(this) || Greenfoot.isKeyDown("a")) {
-           Greenfoot.setWorld(new Play_Page(new Car1(), new Car2()));
+           Greenfoot.setWorld(new Play_Page(new Player1(), new Player2()));
         }
     }
 }

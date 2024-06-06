@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Play_Page extends World
 {
     // Instance variables
-    private int car1Health;
-    private int car2Health;
+    private int player1Health;
+    private int player2Health;
     private int distance;
     private boolean win;
     
@@ -20,7 +20,7 @@ public class Play_Page extends World
      * Constructor for objects of class Play_Page.
      * 
      */
-    public Play_Page(Car1 p1, Car2 p2)
+    public Play_Page(Player1 p1, Player2 p2)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
@@ -28,8 +28,8 @@ public class Play_Page extends World
         addObject(new RaceTrack(), 450, 0);
         addObject(p1, 372, 328);
         addObject(p2, 116, 328);
-        car1Health = 100;
-        car2Health = 100;
+        player1Health = 100;
+        player2Health = 100;
         distance = 900000000;
         win = false;
     }
@@ -59,20 +59,20 @@ public class Play_Page extends World
         countDistance(); 
     }
     
-    public void addCar1Health(int damage) {
-        car1Health += damage;
+    public void addPlayer1Health(int damage) {
+        player1Health += damage;
     }
     
-    public void addCar2Health(int damage) {
-        car2Health += damage;
+    public void addPlayer2Health(int damage) {
+        player2Health += damage;
     }
     
     private void results() {
-        if (car1Health == 0) {
+        if (player1Health == 0) {
             showText("Car1 has died in a crash! Car2 has won!", 300, 200);
             Greenfoot.stop();
         }
-        if (car2Health == 0) {
+        if (player2Health == 0) {
             showText("Car2 has died in a crash! Car1 has won!", 300, 200);
             Greenfoot.stop();
         }
@@ -107,11 +107,11 @@ public class Play_Page extends World
     }
     
     private void showScore() {
-        showText("Car1 Health: " + car1Health, 80, 25);
+        showText("Car1 Health: " + player1Health, 80, 25);
     }
     
     private void showScore2() {
-        showText("Car2 Health: " + car2Health, 500, 25);
+        showText("Car2 Health: " + player2Health, 500, 25);
     }
 
 }

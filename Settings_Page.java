@@ -9,8 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Settings_Page extends World
 {
     //attempting to create cars at menu screen to pass along through screens - ryan
-    Car1 p1 = new Car1();
-    Car2 p2 = new Car2();
+    Player1 p1 = new Player1();
+    Player2 p2 = new Player2();
+    //trying to create image for redcar on screen - ryan
+    redCar clickRed = new redCar();
+    //trying to create image for bluecar on screen - ryan
+    blueCar clickBlue = new blueCar();
+    //trying to create image for batcar on screen - ryan
+    batCar clickBat = new batCar();
+    
     private static int player = 0;
     /**
      * Constructor for objects of class Settings_Page.
@@ -22,13 +29,19 @@ public class Settings_Page extends World
         prepare();
         act();
     }
+  
+    public void act(){
+        if(player == 0){
+            showText("Player 1, pick a car's trunk", 300, 50);
+        }
+        redClick();
+    }
     
     public void prepare(){
         //trying to create image for blueCar on screen - ryan
-        GreenfootImage blueCar = new GreenfootImage("car01-n.png");
-        getBackground().drawImage(blueCar, 225, 125);
+        addObject(clickBlue, 240, 160);
         //trying to create image for redcar on screen - ryan
-        addObject(new redCar(), 240, 310);
+        addObject(clickRed, 240, 310);
         //trying to create image for ambulance on screen - ryan
         GreenfootImage ambulance = new GreenfootImage("ambulance.png");
         ambulance.scale(ambulance.getWidth() / 4, ambulance.getHeight() / 4);
@@ -52,23 +65,43 @@ public class Settings_Page extends World
         //tried to put numbers on screen to indicate which car, but does not work - ryan
         GreenfootImage num1 = new GreenfootImage("num1.png");
         num1.scale(num1.getWidth()/23, num1.getHeight()/23);
-        getBackground().drawImage(num1, 20, 300);
+        getBackground().drawImage(num1, 35, 320);
         GreenfootImage num2 = new GreenfootImage("num2.png");
         num2.scale(num1.getWidth(), num1.getHeight());
-        getBackground().drawImage(num2, 510, 300);
-    }
-
-    public void act(){
-        if(player == 0){
-            showText("Player 1, pick a car", 300, 50);
-        }
+        getBackground().drawImage(num2, 505, 320);
+        //player 1 image -  ryan
+        addObject(p1,75,144);
     }
     
     public static int getplayer(){
         return player;
     }
     
-    public void redclick(){
-        p1.setImage("car01-n.png");
+    //if the red car is clicked for either player - ryan
+    public void redClick(){
+        //player1 click
+        if (Greenfoot.mouseClicked(clickRed)){
+            GreenfootImage redImg = new GreenfootImage("car02-n.png");
+            redImg.scale(redImg.getWidth() * 3, redImg.getHeight() * 3);
+            p1.setImage(redImg);
+        }
+    }
+    
+    public void blueClick(){
+        //player1 click
+        if (Greenfoot.mouseClicked(clickBlue)){
+            GreenfootImage blueImg = new GreenfootImage("car01-n.png");
+            blueImg.scale(blueImg.getWidth() * 3, blueImg.getHeight() * 3);
+            p1.setImage(blueImg);
+        }
+    }
+    
+    public void batClick(){
+        //player1 click
+        if (Greenfoot.mouseClicked(clickBat)){
+            GreenfootImage batImg = new GreenfootImage("batmobile.png");
+            batImg.scale(batImg.getWidth() / 10, batImg.getHeight() / 10);
+            p1.setImage(batImg);
+        }
     }
 }

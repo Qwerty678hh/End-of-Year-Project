@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class blueCar here.
+ * Write a description of class batCar here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class blueCar extends characterselect
+public class batCar extends characterselect
 {
     /**
-     * Act - do whatever the blueCar wants to do. This method is called whenever
+     * Act - do whatever the batCar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void updateImage()
