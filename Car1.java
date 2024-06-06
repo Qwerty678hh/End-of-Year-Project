@@ -6,8 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Car1 extends Actor
-{
+public class Car1 extends Actor {
     /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -50,7 +49,10 @@ public class Car1 extends Actor
             setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("down")) {
+        //Updated upstream
             setLocation(getX(), getY() + speed);
+            setLocation(getX(), getY() + 6);
+            //Stashed changes
         }
     }
     
@@ -69,6 +71,10 @@ public class Car1 extends Actor
         if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(0);
         }
+        if (isTouching(SpeedBoost.class)) {
+            removeTouching(SpeedBoost.class);
+            setLocation(getX(), getY() -100);
+        }
         if (isTouching(OilSpill.class)) {
             speed = 1;
             a = 1;
@@ -80,7 +86,7 @@ public class Car1 extends Actor
             removeTouching(SpeedBoost.class);
         }
     }
-    
+
     private void oilCounter() {
         if (oilTime == 0) {
             speed = 4;
@@ -100,6 +106,7 @@ public class Car1 extends Actor
         }
         else if (b == 1) {
             speedTime -= 10;
+
         }
     }
 }

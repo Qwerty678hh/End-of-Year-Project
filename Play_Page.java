@@ -42,6 +42,9 @@ public class Play_Page extends World
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
+        if (Greenfoot.getRandomNumber(100) < 1) {
+            addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
+        }
         if (Greenfoot.getRandomNumber(1000) < 7)
         {
             addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
