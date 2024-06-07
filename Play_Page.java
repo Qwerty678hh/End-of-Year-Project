@@ -30,7 +30,7 @@ public class Play_Page extends World
         addObject(p2, 116, 328);
         car1Health = 100;
         car2Health = 100;
-        distance = 900000000;
+        distance = 500000;
         win = false;
     }
     
@@ -70,11 +70,11 @@ public class Play_Page extends World
     private void results() {
         if (car1Health == 0) {
             showText("Car1 has died in a crash! Car2 has won!", 300, 200);
-            Greenfoot.stop();
+            distance = 1000;
         }
         if (car2Health == 0) {
             showText("Car2 has died in a crash! Car1 has won!", 300, 200);
-            Greenfoot.stop();
+            distance = 1000;
         }
     }
     
@@ -89,17 +89,19 @@ public class Play_Page extends World
         }
     }
     
-    private void countDistance() {
+    public boolean countDistance() {
         if (distance > 0) {
             distance -= 10000;
         }
         else if (distance == 0) {
-            Greenfoot.stop();
+            setBackground("Bluerock.png");
+            return true;
         }
         showDistance();
         if (distance == 6000000) {
             addObject(new FinishLine(), 300, 0); 
         }
+        return false;
     }
     
     private void showDistance() {
