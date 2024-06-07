@@ -23,7 +23,7 @@ public class Player2 extends Actor
     public void act()
     {
         checkKeyPress();
-        checkCollision();
+        //checkCollision();
         oilCounter();
     }
     

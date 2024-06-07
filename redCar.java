@@ -18,12 +18,5 @@ public class redCar extends characterselect
      */
     public void updateImage(){
         // Add your action code here.
-        /*
-        if (Greenfoot.mouseClicked(this) || Greenfoot.isKeyDown("a")) {
-            if(Settings_Page.getplayer()==0){
-                Settings_Page.redclick();
-            }
-        }
-        */
     }
 }
