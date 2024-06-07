@@ -13,7 +13,9 @@ public class HealthUpgrade extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public HealthUpgrade() {
-        
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth(), image.getHeight());
+        setImage(image);
     }
     
     public void act()

@@ -15,7 +15,7 @@ public class Home extends Actor
     public Home()
     {
         GreenfootImage image = getImage();
-        image.scale(image.getWidth() / 3, image.getHeight() / 3);
+        image.scale(image.getWidth() / 6, image.getHeight() / 6);
         setImage(image);
     }
     public void act() {

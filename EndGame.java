@@ -87,7 +87,7 @@ public class EndGame extends World
         removeObject(shop);
         addObject(car1Button, 300, 200);
         addObject(car2Button, 300, 300);
-        addObject(homeButton, 100, 400);
+        addObject(homeButton, 100, 550);
     }
     
     public void car1() {
@@ -109,10 +109,61 @@ public class EndGame extends World
     public void stats() {
         removeObject(statsButton);
         removeObject(skinsButton);
-        addObject(healthUpgrade, 250, 200);
-        addObject(speedUpgrade, 250, 500);
-        addObject(healthBar, 550, 200);
-        addObject(speedBar, 550, 500);
+        addObject(healthUpgrade, 250, 150);
+        addObject(speedUpgrade, 250, 450);
+        addObject(healthBar, 550, 150);
+        addObject(speedBar, 550, 450);
+        if (player == 1) {
+            // Health
+            if (car1Health == 25) {
+                healthBar.setImage("Level1.png");
+            }
+            else if (car1Health == 30) {
+                healthBar.setImage("Level2.png");
+            }   
+            else if (car1Health == 35) {
+                healthBar.setImage("Level3.png");
+            }
+            else if (car1Health == 40) {
+                healthBar.setImage("Level4.png");
+            }
+            else if (car1Health == 45) {
+                healthBar.setImage("Level5.png");
+            }
+            // Speed
+            if (car1Speed == 25) {
+                speedBar.setImage("Level1.png");
+            }
+            else if (car1Speed == 30) {
+                speedBar.setImage("Level2.png");
+            }   
+            else if (car1Speed == 35) {
+                speedBar.setImage("Level3.png");
+            }
+            else if (car1Speed == 40) {
+                speedBar.setImage("Level4.png");
+            }
+            else if (car1Speed == 45) {
+                speedBar.setImage("Level5.png");
+            }
+        }
+        else if (player == 2) {
+            if (car2Health == 25) {
+                healthBar.setImage("Level1.png");
+            }
+            else if (car2Health == 30) {
+                healthBar.setImage("Level2.png");
+            }   
+            else if (car2Health == 35) {
+                healthBar.setImage("Level3.png");
+            }
+            else if (car2Health == 40) {
+                healthBar.setImage("Level4.png");
+            }
+            else if (car2Health == 45) {
+                healthBar.setImage("Level5.png");
+            }
+        }
     }
     
     public void healthUpgrade() {
@@ -155,20 +206,15 @@ public class EndGame extends World
     }
     
     public void home() {
-        home = true;
-        car1Button = new Car1Button();
-        car2Button = new Car2Button();
-        // Stats button
-        statsButton = new StatsButton();
-        // Skins button
-        skinsButton = new SkinsButton();
-        // Health upgrade button
-        healthUpgrade = new HealthUpgrade();
-        // Speed upgrade button
-        speedUpgrade = new SpeedUpgrade();
-        // Health and speed bars
-        healthBar = new HealthBar();
-        speedBar = new SpeedBar();
+        removeObject(car1Button);
+        removeObject(car2Button);
+        removeObject(healthBar);
+        removeObject(healthUpgrade);
+        removeObject(shop);
+        removeObject(skinsButton);
+        removeObject(speedBar);
+        removeObject(speedUpgrade);
+        removeObject(statsButton);
         addObject(pa, 300, 100);
         addObject(shop, 300, 300);
     }

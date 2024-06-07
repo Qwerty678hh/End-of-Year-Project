@@ -22,9 +22,9 @@ public class RaceTrack extends Actor
     public void act()
     {
         Play_Page playPage = (Play_Page)getWorld();
-        if (playPage.countDistance()) {
-            getWorld().removeObject(this);
-        }
+        //if (playPage.countDistance()) {
+            //getWorld().removeObject(this);
+        //}
         setLocation(getX(), getY() + 4);
         if (getY() == 599) {
             setLocation(getX(),0);
