@@ -14,10 +14,16 @@ public class Car2 extends Actor
      */
     private int speed;
     private int oilTime; 
+    private int speedTime;
+    private int a;
+    private int b;
     
-    public Car2() {
-        speed = 4; 
-        oilTime = 10000;
+    public Car2(int speed) {
+        this.speed = speed;
+        oilTime = 1000;
+        speedTime = 1000;
+        a = 0;
+        b = 0;
     }
     
     public void act()
@@ -58,24 +64,34 @@ public class Car2 extends Actor
          if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(1);
         }
-        if (isTouching(SpeedBoost.class)) {
-            removeTouching(SpeedBoost.class);
-            setLocation(getX(), getY() -100);
-
         if (isTouching(OilSpill.class)) {
             speed = 1;
             removeTouching(OilSpill.class);
         }
-    }
-}   
+        if (isTouching(SpeedBoost.class)) {
+            speed = 8;
+            b = 1; 
+            removeTouching(SpeedBoost.class);
+        }
+    }   
     private void oilCounter() {
         if (oilTime == 0) {
             speed = 4;
-            oilTime = 10000;
+            oilTime = 1000;
+            a = 0;
         }
-        else {
-            oilTime -= 100;
-
+        else if (a == 1) {
+            oilTime -= 50;
+        }
+    }
+    private void speedCounter() {
+        if (speedTime == 0) {
+            speed = 4;
+            speedTime = 1000;
+            b = 0;
+        }
+        else if (b == 1) {
+            speedTime -= 50;
         }
     }
 }

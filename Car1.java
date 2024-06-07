@@ -17,8 +17,8 @@ public class Car1 extends Actor {
     private int a;
     private int b;
     
-    public Car1() {
-        speed = 4;
+    public Car1(int speed) {
+        this.speed = speed;
         oilTime = 1000;
         speedTime = 1000;
         a = 0;
@@ -49,10 +49,8 @@ public class Car1 extends Actor {
             setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("down")) {
-        //Updated upstream
+            //Updated upstream
             setLocation(getX(), getY() + speed);
-            setLocation(getX(), getY() + 6);
-            //Stashed changes
         }
     }
     
@@ -70,10 +68,6 @@ public class Car1 extends Actor {
         }
         if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(0);
-        }
-        if (isTouching(SpeedBoost.class)) {
-            removeTouching(SpeedBoost.class);
-            setLocation(getX(), getY() -100);
         }
         if (isTouching(OilSpill.class)) {
             speed = 1;
@@ -105,8 +99,7 @@ public class Car1 extends Actor {
             b = 0;
         }
         else if (b == 1) {
-            speedTime -= 10;
-
+            speedTime -= 50;
         }
     }
 }

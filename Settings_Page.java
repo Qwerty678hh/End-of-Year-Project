@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Settings_Page extends World
 {
     //attempting to create cars at menu screen to pass along through screens - ryan
-    Car1 p1 = new Car1();
-    Car2 p2 = new Car2();
+    Car1 p1 = new Car1(5);
+    Car2 p2 = new Car2(5);
     private static int player = 0;
     /**
      * Constructor for objects of class Settings_Page.
