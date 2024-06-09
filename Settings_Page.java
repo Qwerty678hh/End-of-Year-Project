@@ -33,6 +33,10 @@ public class Settings_Page extends World
     //game starts when start button is pressed
     //players can press back button to reset character
     public int step = 0;
+    // Flag to track if next button was clicked
+    private boolean nextClicked = false;
+    private boolean menuClicked = false;
+
     /**
      * Constructor for objects of class Settings_Page.
      * 
@@ -44,6 +48,8 @@ public class Settings_Page extends World
     }
   
     public void act(){
+        HandleClicks();
+        
         if(step < 1){
             showText("Player 1, pick a car", 300, 50);
         }
@@ -54,14 +60,16 @@ public class Settings_Page extends World
         else if (step == 2){
             showText("Ready? ----->", 300, 50);
         }
-        
+    }
+    
+    public void HandleClicks(){
         redClick();
         blueClick();
         batClick();
         medClick();
         menuReturn();
+        incrementStep();
     }
-    
     public void prepare(){
         //trying to create image for blueCar on screen - ryan
         addObject(clickBlue, 240, 200);
@@ -108,12 +116,24 @@ public class Settings_Page extends World
     }
     
     public void incrementStep(){
-        System.out.println("incrementStep called, current step: " + step);
-        if(step != 2){
+        // Check for mouse click on next button or key press 'n'
+        if (!nextClicked && (Greenfoot.mouseClicked(next) || Greenfoot.isKeyDown("n"))) {
+            System.out.println("incrementStep called, current step: " + step);
+            System.out.println("nextButton clicked");
+
+            if(step != 2){
                 step++;
+                System.out.println("Step incremented to: " + step);
             }
-        else if (step == 2){
+            else if (step == 2){
                 Greenfoot.setWorld(new Play_Page(p1, p2)); 
+            }
+            nextClicked = true; // Set the flag to prevent multiple increments
+        }
+
+        // Reset the flag when the button is released
+        if (!Greenfoot.mouseClicked(next) && !Greenfoot.isKeyDown("n")) {
+            nextClicked = false;
         }
     }
     
@@ -178,7 +198,7 @@ public class Settings_Page extends World
             }
             //player2 click
             else{
-                p1.setImage(batImg);
+                p2.setImage(batImg);
             }
         }
     }
@@ -186,15 +206,19 @@ public class Settings_Page extends World
     //if menu button is pressed, step goes back 1
     //if step is at 0, returns to menu
     public void menuReturn(){
-        if(Greenfoot.mouseClicked(menu)){
-            if(step == 0) {
-                Greenfoot.setWorld(new HomePage());
-            }
-        
-            else{
-                step--;
-            }
+    if (!menuClicked && (Greenfoot.mouseClicked(menu) || Greenfoot.isKeyDown("b"))) {
+        if(step == 0) {
+            Greenfoot.setWorld(new HomePage());
+        } else {
+            step--;
         }
+        menuClicked = true; // Set the flag to prevent multiple decrements
     }
+
+    // Reset the flag when the button is released
+    if (!Greenfoot.mouseClicked(menu) && !Greenfoot.isKeyDown("b")) {
+        menuClicked = false;
+    }
+}
     
 }

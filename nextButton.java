@@ -25,9 +25,6 @@ public class nextButton extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() {
-        if (Greenfoot.mouseClicked(this)) {
-            System.out.println("nextButton clicked");
-            ((Settings_Page)getWorld()).incrementStep();
-        }
+        
     }
 }

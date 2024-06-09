@@ -28,6 +28,18 @@ public class Play_Page extends World
         addObject(new RaceTrack(), 450, 0);
         addObject(p1, 372, 328);
         addObject(p2, 116, 328);
+        
+        //scaling p1 - ryan
+            GreenfootImage p1Img = new GreenfootImage(p1.getImage());
+            p1Img.scale(p1Img.getWidth()/3, p1Img.getHeight()/3);
+            p1.setImage(p1Img);
+        
+        //scaling p2 - ryan
+            GreenfootImage p2Img = new GreenfootImage(p2.getImage());
+            p2Img.scale(p2Img.getWidth()/3, p2Img.getHeight()/3);
+            p2.setImage(p2Img);
+    
+        
         player1Health = 100;
         player2Health = 100;
         distance = 900000000;

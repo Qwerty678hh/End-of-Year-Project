@@ -20,9 +20,6 @@ public class HomePage extends World
     }
     
     public void act() {
-        if (Greenfoot.isKeyDown("b")) {
-            setBackground("bluerock.jpg");
-        }
     }
     
     private void prepare() {
