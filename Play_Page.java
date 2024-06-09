@@ -11,6 +11,10 @@ public class Play_Page extends World
     // Instance variables
     private int car1Health;
     private int car2Health;
+    private int initHealth1;
+    private int initHealth2;
+    private int initSpeed1;
+    private int initSpeed2;
     private int distance;
     private boolean win;
     
@@ -20,18 +24,34 @@ public class Play_Page extends World
      * Constructor for objects of class Play_Page.
      * 
      */
-    public Play_Page(Car1 p1, Car2 p2)
+    public Play_Page(Car1 p1, Car2 p2, int car1Health, int car2Health, int car1Speed, int car2Speed)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
+        // Adds racetrack and cars
         addObject(new RaceTrack(), 150, 0);
         addObject(new RaceTrack(), 450, 0);
         addObject(p1, 372, 328);
         addObject(p2, 116, 328);
-        car1Health = 100;
-        car2Health = 100;
+        // Current health
+        this.car1Health = car1Health;
+        this.car2Health = car2Health;
+        // Stores original speed
+        initSpeed1 = car1Speed;
+        initSpeed2 = car2Speed;
+        // Stores original health
+        initHealth1 = car1Health;
+        initHealth2 = car2Health;
         distance = 500000;
         win = false;
+    }
+    
+    public int getCar1Health() {
+        return car1Health;
+    }
+    
+    public int getCar2Health() {
+        return car2Health;
     }
     
     public boolean getWin() {
@@ -56,7 +76,9 @@ public class Play_Page extends World
         showScore();
         showScore2();
         results();
-        countDistance(); 
+        if (countDistance()) {
+            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2));
+        }
     }
     
     public void addCar1Health(int damage) {
@@ -94,7 +116,6 @@ public class Play_Page extends World
             distance -= 10000;
         }
         else if (distance == 0) {
-            setBackground("Bluerock.png");
             return true;
         }
         showDistance();
