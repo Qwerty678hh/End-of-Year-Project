@@ -79,6 +79,10 @@ public class Car1 extends Actor {
             b = 1; 
             removeTouching(SpeedBoost.class);
         }
+        if (isTouching(Coin.class)) {
+            playPage.addCar1Coins(10);
+            removeTouching(Coin.class);
+        }
     }
 
     private void oilCounter() {

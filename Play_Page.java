@@ -16,6 +16,8 @@ public class Play_Page extends World
     private int initSpeed1;
     private int initSpeed2;
     private int distance;
+    private int car1Coins;
+    private int car2Coins;
     private boolean win;
     
     private int score;
@@ -29,8 +31,8 @@ public class Play_Page extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
         // Adds racetrack and cars
-        addObject(new RaceTrack(), 150, 0);
-        addObject(new RaceTrack(), 450, 0);
+        addObject(new RaceTrack(), 100, 0);
+        addObject(new RaceTrack(), 500, 0);
         addObject(p1, 372, 328);
         addObject(p2, 116, 328);
         // Current health
@@ -42,8 +44,10 @@ public class Play_Page extends World
         // Stores original health
         initHealth1 = car1Health;
         initHealth2 = car2Health;
-        distance = 500000;
+        distance = 9000000;
         win = false;
+        car1Coins = 0;
+        car2Coins = 0;
     }
     
     public int getCar1Health() {
@@ -73,6 +77,10 @@ public class Play_Page extends World
         {
             addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
         }
+        if (Greenfoot.getRandomNumber(1000) < 7)
+        {
+            addObject(new Coin(), Greenfoot.getRandomNumber(600), 0);
+        }
         showScore();
         showScore2();
         results();
@@ -89,14 +97,20 @@ public class Play_Page extends World
         car2Health += damage;
     }
     
+    public void addCar1Coins(int coins) {
+        car1Coins += coins;
+    }
+    
+    public void addCar2Coins(int coins) {
+        car2Coins += coins;
+    }
+    
     private void results() {
-        if (car1Health == 0) {
+        if (car1Health == 0 || car1Health < 0) {
             showText("Car1 has died in a crash! Car2 has won!", 300, 200);
-            distance = 1000;
         }
-        if (car2Health == 0) {
+        if (car2Health == 0 || car2Health < 0) {
             showText("Car2 has died in a crash! Car1 has won!", 300, 200);
-            distance = 1000;
         }
     }
     
@@ -131,10 +145,12 @@ public class Play_Page extends World
     
     private void showScore() {
         showText("Car1 Health: " + car1Health, 80, 25);
+        showText("Car1 Coins: " + car1Coins, 80, 40);
     }
     
     private void showScore2() {
         showText("Car2 Health: " + car2Health, 500, 25);
+        showText("Car2 Coins: " + car2Coins, 500, 40);
     }
 
 }
