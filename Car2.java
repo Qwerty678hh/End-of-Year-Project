@@ -48,10 +48,14 @@ public class Car2 extends Actor
             setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("s")) {
+            setLocation(getX(), getY() + speed);
+            setLocation(getX(), getY() + 6);
+        }
+        if(Greenfoot.isKeyDown("r")){
+            getWorld().addObject(new Rocket(), getX(), getY() + 20);
             //
             setLocation(getX(), getY() + speed);
             setLocation(getX(), getY() + 6);
-            //Stashed changes
         }
     }
     
@@ -63,6 +67,10 @@ public class Car2 extends Actor
         }
          if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(1);
+        }
+        if (isTouching(SpeedBoost.class)) {
+            removeTouching(SpeedBoost.class);
+            setLocation(getX(), getY() -100);
         }
         if (isTouching(OilSpill.class)) {
             speed = 1;

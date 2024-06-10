@@ -32,7 +32,7 @@ public class Car1 extends Actor {
             //getWorld().removeObject(this);
         //}
         checkKeyPress();
-        //checkLocation();
+        checkLocation();
         checkCollision();
         oilCounter();
         speedCounter();
@@ -49,6 +49,11 @@ public class Car1 extends Actor {
             setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("down")) {
+            setLocation(getX(), getY() + speed);
+            setLocation(getX(), getY() + 6);
+        }
+        if(Greenfoot.isKeyDown("shift")){
+            getWorld().addObject(new Rocket(), getX(), getY() + 20);
             //Updated upstream
             setLocation(getX(), getY() + speed);
         }
@@ -68,6 +73,10 @@ public class Car1 extends Actor {
         }
         if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(0);
+        }
+        if (isTouching(SpeedBoost.class)) {
+            removeTouching(SpeedBoost.class);
+            setLocation(getX(), getY() -100);
         }
         if (isTouching(OilSpill.class)) {
             speed = 1;
