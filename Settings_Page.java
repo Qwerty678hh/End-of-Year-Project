@@ -118,12 +118,9 @@ public class Settings_Page extends World
     public void incrementStep(){
         // Check for mouse click on next button or key press 'n'
         if (!nextClicked && (Greenfoot.mouseClicked(next) || Greenfoot.isKeyDown("n"))) {
-            System.out.println("incrementStep called, current step: " + step);
-            System.out.println("nextButton clicked");
 
             if(step != 2){
                 step++;
-                System.out.println("Step incremented to: " + step);
             }
             else if (step == 2){
                 Greenfoot.setWorld(new Play_Page(p1, p2)); 
