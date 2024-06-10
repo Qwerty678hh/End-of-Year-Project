@@ -29,7 +29,7 @@ public class Car1 extends Actor
     public void act()
     {
         checkKeyPress();
-        //checkLocation();
+        checkLocation();
         checkCollision();
         oilCounter();
         speedCounter();
@@ -46,11 +46,11 @@ public class Car1 extends Actor
             setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("down")) {
-<<<<<<< Updated upstream
             setLocation(getX(), getY() + speed);
-=======
             setLocation(getX(), getY() + 6);
->>>>>>> Stashed changes
+        }
+        if(Greenfoot.isKeyDown("shift")){
+            getWorld().addObject(new Rocket(), getX(), getY() + 20);
         }
     }
     
@@ -72,7 +72,7 @@ public class Car1 extends Actor
         if (isTouching(SpeedBoost.class)) {
             removeTouching(SpeedBoost.class);
             setLocation(getX(), getY() -100);
-
+        }
         if (isTouching(OilSpill.class)) {
             speed = 1;
             a = 1;

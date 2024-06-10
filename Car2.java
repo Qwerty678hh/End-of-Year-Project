@@ -38,11 +38,11 @@ public class Car2 extends Actor
             setLocation(getX(), getY() - speed);
         }
         if (Greenfoot.isKeyDown("s")) {
-<<<<<<< Updated upstream
             setLocation(getX(), getY() + speed);
-=======
             setLocation(getX(), getY() + 6);
->>>>>>> Stashed changes
+        }
+        if(Greenfoot.isKeyDown("r")){
+            getWorld().addObject(new Rocket(), getX(), getY() + 20);
         }
     }
     
@@ -58,7 +58,7 @@ public class Car2 extends Actor
         if (isTouching(SpeedBoost.class)) {
             removeTouching(SpeedBoost.class);
             setLocation(getX(), getY() -100);
-
+        }
         if (isTouching(OilSpill.class)) {
             speed = 1;
             removeTouching(OilSpill.class);
