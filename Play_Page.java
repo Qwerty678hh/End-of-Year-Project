@@ -9,12 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Play_Page extends World
 {
     // Instance variables
-    private int car1Health;
-    private int car2Health;
-    private int initHealth1;
-    private int initHealth2;
-    private int initSpeed1;
-    private int initSpeed2;
+    private int player1Health;
+    private int player2Health;
     private int distance;
     private int car1Coins;
     private int car2Coins;
@@ -45,6 +41,16 @@ public class Play_Page extends World
         initHealth1 = car1Health;
         initHealth2 = car2Health;
         distance = 9000000;
+        
+        //scaling p1 - ryan
+            GreenfootImage p1Img = new GreenfootImage(p1.getImage());
+            p1Img.scale(p1Img.getWidth()/3, p1Img.getHeight()/3);
+            p1.setImage(p1Img);
+        
+        //scaling p2 - ryan
+            GreenfootImage p2Img = new GreenfootImage(p2.getImage());
+            p2Img.scale(p2Img.getWidth()/3, p2Img.getHeight()/3);
+            p2.setImage(p2Img);
         win = false;
         car1Coins = 0;
         car2Coins = 0;
@@ -89,12 +95,12 @@ public class Play_Page extends World
         }
     }
     
-    public void addCar1Health(int damage) {
-        car1Health += damage;
+    public void addPlayer1Health(int damage) {
+        player1Health += damage;
     }
     
-    public void addCar2Health(int damage) {
-        car2Health += damage;
+    public void addPlayer2Health(int damage) {
+        player2Health += damage;
     }
     
     public void addCar1Coins(int coins) {
@@ -106,10 +112,10 @@ public class Play_Page extends World
     }
     
     private void results() {
-        if (car1Health == 0 || car1Health < 0) {
+        if (player1Health == 0) {
             showText("Car1 has died in a crash! Car2 has won!", 300, 200);
         }
-        if (car2Health == 0 || car2Health < 0) {
+        if (player2Health == 0) {
             showText("Car2 has died in a crash! Car1 has won!", 300, 200);
         }
     }
@@ -144,13 +150,11 @@ public class Play_Page extends World
     }
     
     private void showScore() {
-        showText("Car1 Health: " + car1Health, 80, 25);
-        showText("Car1 Coins: " + car1Coins, 80, 40);
+        showText("Car1 Health: " + player1Health, 80, 25);
     }
     
     private void showScore2() {
-        showText("Car2 Health: " + car2Health, 500, 25);
-        showText("Car2 Coins: " + car2Coins, 500, 40);
+        showText("Car2 Health: " + player2Health, 500, 25);
     }
 
 }

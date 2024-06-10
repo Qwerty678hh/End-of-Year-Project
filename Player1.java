@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Car here.
+ * Write a description of class Player here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Car1 extends Actor {
+public class Player1 extends Actor {
     /**
-     * Act - do whatever the Car wants to do. This method is called whenever
+     * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int speed;
@@ -68,7 +68,7 @@ public class Car1 extends Actor {
     private void checkCollision() {
         Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
-            playPage.addCar1Health(-10);
+            playPage.addPlayer1Health(-10);
             removeTouching(Car3.class);
         }
         if (isTouching(FinishLine.class) && !playPage.getWin()) {

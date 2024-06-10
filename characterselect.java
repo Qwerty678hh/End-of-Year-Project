@@ -12,5 +12,5 @@ public abstract class characterselect extends Actor
      * Act - do whatever the characterselect wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    abstract void updateimage();
+    abstract void updateImage();
 }

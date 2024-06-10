@@ -12,7 +12,7 @@ public class blueCar extends characterselect
      * Act - do whatever the blueCar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void updateimage()
+    public void updateImage()
     {
         // Add your action code here.
     }
