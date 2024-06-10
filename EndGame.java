@@ -55,9 +55,11 @@ public class EndGame extends World
         // Car1 and Car2 Buttons
         car1Button = new Car1Button();
         car2Button = new Car2Button();
-        // Starting health variables
+        // Starting health/speed variables
         this.car1Health = car1Health;
         this.car2Health = car2Health;
+        this.car1Speed = car1Speed;
+        this.car2Speed = car2Speed;
         // Home
         homeButton = new Home();
     }
