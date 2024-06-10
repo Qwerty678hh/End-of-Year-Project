@@ -19,6 +19,7 @@ public class Play_Page extends World
     private int car1Coins;
     private int car2Coins;
     private boolean win;
+    private int time;
     
     private int score;
     private int score2;
@@ -48,6 +49,7 @@ public class Play_Page extends World
         win = false;
         car1Coins = 0;
         car2Coins = 0;
+        time = 30000;
     }
     
     public int getCar1Health() {
@@ -87,6 +89,9 @@ public class Play_Page extends World
         if (countDistance()) {
             Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2));
         }
+        if (time == 0) {
+            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2));
+        }
     }
     
     public void addCar1Health(int damage) {
@@ -118,10 +123,12 @@ public class Play_Page extends World
         if (a == 0) {
             showText("Car1 has won the race!", 300, 300);
             win = true;
+            time -= 10000;
         }
         else if (a == 1) {
             showText("Car2 has won the race!", 300, 300);
             win = true;
+            time -= 10000;
         }
     }
     
