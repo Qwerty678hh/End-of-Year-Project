@@ -6,8 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Car1 extends Actor
-{
+public class Car1 extends Actor {
     /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,8 +17,8 @@ public class Car1 extends Actor
     private int a;
     private int b;
     
-    public Car1() {
-        speed = 4;
+    public Car1(int speed) {
+        this.speed = speed;
         oilTime = 1000;
         speedTime = 1000;
         a = 0;
@@ -28,6 +27,10 @@ public class Car1 extends Actor
     
     public void act()
     {
+        Play_Page playPage = (Play_Page)getWorld();
+        //if (playPage.countDistance()) {
+            //getWorld().removeObject(this);
+        //}
         checkKeyPress();
         checkLocation();
         checkCollision();
@@ -51,6 +54,8 @@ public class Car1 extends Actor
         }
         if(Greenfoot.isKeyDown("shift")){
             getWorld().addObject(new Rocket(), getX(), getY() + 20);
+            //Updated upstream
+            setLocation(getX(), getY() + speed);
         }
     }
     
@@ -83,8 +88,12 @@ public class Car1 extends Actor
             b = 1; 
             removeTouching(SpeedBoost.class);
         }
+        if (isTouching(Coin.class)) {
+            playPage.addCar1Coins(10);
+            removeTouching(Coin.class);
+        }
     }
-    
+
     private void oilCounter() {
         if (oilTime == 0) {
             speed = 4;
@@ -103,8 +112,7 @@ public class Car1 extends Actor
             b = 0;
         }
         else if (b == 1) {
-            speedTime -= 10;
-
+            speedTime -= 50;
         }
     }
 }
