@@ -54,6 +54,8 @@ public class Car1 extends Actor {
         }
         if(Greenfoot.isKeyDown("shift")){
             getWorld().addObject(new Rocket(), getX(), getY() + 20);
+            //Updated upstream
+            setLocation(getX(), getY() + speed);
         }
     }
     

@@ -20,6 +20,7 @@ public class HomePage extends World
     }
     
     public void act() {
+        prepare();
     }
     
     private void prepare() {
