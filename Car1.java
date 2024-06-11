@@ -27,7 +27,7 @@ public class Car1 extends Actor {
     
     public void act()
     {
-        Play_Page playPage = (Play_Page)getWorld();
+        //Play_Page playPage = (Play_Page)getWorld();
         //if (playPage.countDistance()) {
             //getWorld().removeObject(this);
         //}
@@ -68,7 +68,7 @@ public class Car1 extends Actor {
     private void checkCollision() {
         Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
-            playPage.addPlayer1Health(-10);
+            playPage.addCar1Health(-10);
             removeTouching(Car3.class);
         }
         if (isTouching(FinishLine.class) && !playPage.getWin()) {

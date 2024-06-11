@@ -6,11 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
+
 public class Settings_Page extends World
 {
     //attempting to create cars at menu screen to pass along through screens - ryan
-    Car1 p1 = new Car1(5);
-    Car2 p2 = new Car2(5);
+    Select1 p1 = new Select1();
+    Select2 p2 = new Select2();
     private static int player = 0;
     //trying to create image for redcar on screen - ryan
     redCar clickRed = new redCar();

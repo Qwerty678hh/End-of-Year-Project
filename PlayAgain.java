@@ -20,7 +20,7 @@ public class PlayAgain extends Actor
             int speed2 = endGame.getCar2Speed();
             int health1 = endGame.getCar1Health(); 
             int health2 = endGame.getCar2Health();
-           Greenfoot.setWorld(new Play_Page(new Car1(speed1), new Car2(speed2), health1, health2,speed1,speed2) );
+           Greenfoot.setWorld(new Play_Page(new Car1(speed1),new Car2(speed2),health1,health2,speed1,speed2));
         }
     }
 }
