@@ -33,7 +33,7 @@ public class Car2 extends Actor
             //getWorld().removeObject(this);
         //}
         checkKeyPress();
-        //checkCollision();
+        checkCollision();
         oilCounter();
         speedCounter();
     }
