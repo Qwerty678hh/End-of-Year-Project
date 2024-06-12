@@ -248,6 +248,7 @@ public class Play_Page extends World
         //player 2 image -  ryan
         removeObject(p2);
         getObjects(dot.class);
+        
         GreenfootImage p1Img = new GreenfootImage(p1.getImage());
         p1Img.scale(p1Img.getWidth() / 2, p1Img.getHeight() / 2);
         p1.setImage(p1Img);
@@ -259,23 +260,23 @@ public class Play_Page extends World
         
         addObject(new RaceTrack(), 100, 0);
         addObject(new RaceTrack(), 500, 0);
-        addObject(p1, 372, 328);
-        addObject(p2, 116, 328);
+        addObject(p2, 372, 328);
+        addObject(p1, 116, 328);
     }
     
     private void controlDot(){
         if(step == 0){
             if (!getObjects(dot.class).contains(dot1)) {
-                addObject(dot1, 170, 480);
+                addObject(dot1, 170, 490);
             } else {
-                dot1.setLocation(170, 480);
+                dot1.setLocation(170, 490);
             }
         } 
         else if(step != 0){
             if (getObjects(dot.class).contains(dot1)) {
-                dot1.setLocation(420, 480);
+                dot1.setLocation(420, 490);
             } else {
-                addObject(dot1, 420, 480);
+                addObject(dot1, 420, 490);
             }
         }
     }
@@ -330,10 +331,10 @@ public class Play_Page extends World
         addObject(next, 550, 20);
         
         //player 1 image -  ryan
-        addObject(p1,75,190);
+        addObject(p1,75,230);
         
         //player 2 image -  ryan
-        addObject(p2,520,190);
+        addObject(p2,520,230);
     }
     
     public void incrementStep(){

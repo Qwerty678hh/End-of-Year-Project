@@ -39,20 +39,20 @@ public class Car1 extends Actor {
     }
     
     private void checkKeyPress() {
-        if (Greenfoot.isKeyDown("right")) {
+        if (Greenfoot.isKeyDown("d")) {
             setLocation(getX() + speed, getY());
         }
-        if (Greenfoot.isKeyDown("left")) {
+        if (Greenfoot.isKeyDown("a")) {
             setLocation(getX() - speed, getY());
         }
-        if (Greenfoot.isKeyDown("up")) {
+        if (Greenfoot.isKeyDown("w")) {
             setLocation(getX(), getY() - speed);
         }
-        if (Greenfoot.isKeyDown("down")) {
+        if (Greenfoot.isKeyDown("s")) {
             setLocation(getX(), getY() + speed);
             setLocation(getX(), getY() + 6);
         }
-        if(Greenfoot.isKeyDown("shift")){
+        if(Greenfoot.isKeyDown("r")){
             getWorld().addObject(new Rocket(), getX(), getY() + 20);
             //Updated upstream
             setLocation(getX(), getY() + speed);
