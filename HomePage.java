@@ -15,7 +15,7 @@ public class HomePage extends World
     public HomePage()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 600, 1); 
         prepare();
     }
     
@@ -27,6 +27,6 @@ public class HomePage extends World
         Title title = new Title();
         addObject(title, 300, 100);
         PlayButton play = new PlayButton();
-        addObject(play, 300, 250);
+        addObject(play, 300, 350);
     }
 }

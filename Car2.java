@@ -36,6 +36,7 @@ public class Car2 extends Actor
         checkCollision();
         oilCounter();
         speedCounter();
+        checkLocation();
     }
     
     public int getSpeed() {
@@ -43,24 +44,23 @@ public class Car2 extends Actor
     }
     
     private void checkKeyPress() {
-        if (Greenfoot.isKeyDown("d")) {
+        if (Greenfoot.isKeyDown("right")) {
             setLocation(getX() + speed, getY());
         }
-        if (Greenfoot.isKeyDown("a")) {
+        if (Greenfoot.isKeyDown("left")) {
             setLocation(getX() - speed, getY());
         }
-        if (Greenfoot.isKeyDown("w")) {
+        if (Greenfoot.isKeyDown("up")) {
             setLocation(getX(), getY() - speed);
         }
-        if (Greenfoot.isKeyDown("s")) {
+        if (Greenfoot.isKeyDown("down")) {
             setLocation(getX(), getY() + speed);
             //setLocation(getX(), getY() + 6);
         }
-        if(Greenfoot.isKeyDown("r")){
+        if(Greenfoot.isKeyDown("shift")){
             getWorld().addObject(new Rocket(), getX(), getY() + 20);
             //
             setLocation(getX(), getY() + speed);
-            setLocation(getX(), getY() + 6);
         }
     }
     
@@ -106,6 +106,12 @@ public class Car2 extends Actor
         }
         else if (b == 1) {
             speedTime -= 50;
+        }
+    }
+    
+    private void checkLocation() {
+        if (getY() == 0) {
+            setLocation(getX(), 450);
         }
     }
 }

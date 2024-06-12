@@ -8,6 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Play_Page extends World
 {
+    /*
+    private int[][] exclusionZones = {
+        {250, y1, x2, y2}
+    };
+    */
     private Car1 p1;
     private Car2 p2;
     private RaceTrack raceTrack1;
@@ -49,6 +54,9 @@ public class Play_Page extends World
     //create menu button
     menuButton menu = new menuButton();
         
+    //make indicator dot
+    private dot dot1;
+    
     //steps are sequencial order of events - ryan
     //step 0 is player 1 choice, when they are ready to move on they press next
     //step 1 is player 2 choice, when they are ready to move on they press next
@@ -70,10 +78,7 @@ public class Play_Page extends World
         // Adds racetrack and cars
         this.p1 = p1;
         this.p2 = p2;
-        /*addObject(new RaceTrack(), 100, 0);
-        addObject(new RaceTrack(), 500, 0);
-        addObject(p1, 372, 328);
-        addObject(p2, 116, 328);*/
+        dot1 = new dot();
         // Current health
         this.car1Health = car1Health;
         this.car2Health = car2Health;
@@ -117,26 +122,27 @@ public class Play_Page extends World
 
     public void act(){
     if (play == 1) {
-        if (Greenfoot.getRandomNumber(100) < 1) {
+        if (Greenfoot.getRandomNumber(1000) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
         }
-        if (Greenfoot.getRandomNumber(1000) < 7)
+        if (Greenfoot.getRandomNumber(1000) < 6)
         {
             addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
         }
-        if (Greenfoot.getRandomNumber(1000) < 7)
+        if (Greenfoot.getRandomNumber(1000) < 6)
         {
             addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
         }
-        if (Greenfoot.getRandomNumber(1000) < 7)
+        if (Greenfoot.getRandomNumber(1000) < 6)
         {
             addObject(new Coin(), Greenfoot.getRandomNumber(600), 0);
         }
         showScore();
         showScore2();
+        showBlank();
         results();
         if (countDistance()) {
             Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
@@ -147,7 +153,7 @@ public class Play_Page extends World
     }
     else if (play == 2) {
         HandleClicks();
-        
+        controlDot();
         if(step < 1){
             showText("Player 1, pick a car", 300, 50);
         }
@@ -224,35 +230,34 @@ public class Play_Page extends World
         else if (car2Distance == 0) {
             return true;
         }
-        //showDistance();
-        if (car1Distance < 2000 && !finish) {
-            addObject(new FinishLine(), 480, 0); 
-            finish = true; 
-        }
-        if (car2Distance < 2000 && !finish) {
-            addObject(new FinishLine(), 150, 0);
-            finish = true; 
+        showDistance();
+        if (distance == 6000000) {
+            addObject(new FinishLine(), 300, 0); 
         }
         return false;
     }
     
     private void showDistance() {
-        showText("Distance: " + distance, 100, 100);
+        showText("Distance: " + distance, 106, 100);
+    }
+    
+    private void showBlank() {
+        showText("", 300, 50);
     }
     
     private void showScore() {
         showText("Car1 Health: " + car1Health, 80, 25);
-        showText("Car1 Coins: " + car1Coins, 80, 40);
-        showText("Distance1: " + car1Distance, 100, 55);
     }
     
     private void showScore2() {
         showText("Car2 Health: " + car2Health, 500, 25);
-        showText("Car2 Coins: " + car2Coins, 500, 40);
-        showText("Distance2: " + car2Distance, 500, 55);
     }
     
     private void play() {
+        addObject(new Grass(),200,220);
+        addObject(new Grass(),200,120);
+        addObject(new Grass(),200,300);
+        addObject(new Grass(),200,400);
         //trying to create image for blueCar on screen - ryan
         removeObject(clickBlue);
         //trying to create image for redcar on screen - ryan
@@ -265,6 +270,7 @@ public class Play_Page extends World
         removeObject(menu);
         showText("",300,50);
         
+        showText("", 300, 50);
         //add next button
         removeObject(next);
         
@@ -273,13 +279,41 @@ public class Play_Page extends World
         
         //player 2 image -  ryan
         removeObject(p2);
-        addObject(new RaceTrack(), 100, 0);
-        addObject(new RaceTrack(), 500, 0);
-        addObject(p1, 372, 328);
-        addObject(p2, 116, 328);
+        getObjects(dot.class);
+        
+        GreenfootImage p1Img = new GreenfootImage(p1.getImage());
+        p1Img.scale(p1Img.getWidth() / 2, p1Img.getHeight() / 2);
+        p1.setImage(p1Img);
+        
+        GreenfootImage p2Img = new GreenfootImage(p2.getImage());
+        p2Img.scale(p2Img.getWidth() / 2, p2Img.getHeight() / 2);
+        p2.setImage(p2Img);
+        
+        
+        addObject(new RaceTrack(), 110, 0);
+        addObject(new RaceTrack(), 490, 0);
+        addObject(p2, 476, 470);
+        addObject(p1, 116, 470);
     }
     
-    // Settings
+    private void controlDot(){
+        if(step == 0){
+            if (!getObjects(dot.class).contains(dot1)) {
+                addObject(dot1, 170, 490);
+            } else {
+                dot1.setLocation(170, 490);
+            }
+        } 
+        else if(step != 0){
+            if (getObjects(dot.class).contains(dot1)) {
+                dot1.setLocation(420, 490);
+            } else {
+                addObject(dot1, 420, 490);
+            }
+        }
+    }
+    
+    // Settings page settings
     public void HandleClicks(){
         redClick();
         blueClick();
@@ -288,7 +322,9 @@ public class Play_Page extends World
         menuReturn();
         incrementStep();
     }
+    
     public void prepare(){
+        controlDot();
         //trying to create image for blueCar on screen - ryan
         addObject(clickBlue, 240, 200);
         //trying to create image for redcar on screen - ryan
@@ -300,11 +336,11 @@ public class Play_Page extends World
         
         //numbers on screen to indicate which car - ryan
         GreenfootImage num1 = new GreenfootImage("num1.png");
-        num1.scale(num1.getWidth()/23, num1.getHeight()/23);
-        getBackground().drawImage(num1, 35, 320);
+        num1.scale(num1.getWidth()/15, num1.getHeight()/15);
+        getBackground().drawImage(num1, 35, 440);
         GreenfootImage num2 = new GreenfootImage("num2.png");
         num2.scale(num1.getWidth(), num1.getHeight());
-        getBackground().drawImage(num2, 505, 320);
+        getBackground().drawImage(num2, 460, 440);
         
         //numbers on screen to indicate which car - ryan
         GreenfootImage num1v2 = new GreenfootImage("num1.png");
@@ -327,10 +363,10 @@ public class Play_Page extends World
         addObject(next, 550, 20);
         
         //player 1 image -  ryan
-        addObject(p1,75,190);
+        addObject(p1,75,230);
         
         //player 2 image -  ryan
-        addObject(p2,520,190);
+        addObject(p2,520,230);
     }
     
     public void incrementStep(){
@@ -343,6 +379,7 @@ public class Play_Page extends World
             else if (step == 2){
                 step++;
                 play();
+                showText("", 300, 50);
                 play = 1; 
             }
             nextClicked = true; // Set the flag to prevent multiple increments
