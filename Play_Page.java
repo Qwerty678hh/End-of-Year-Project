@@ -8,6 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Play_Page extends World
 {
+    /*
+    private int[][] exclusionZones = {
+        {250, y1, x2, y2}
+    };
+    */
     private Car1 p1;
     private Car2 p2;
     // Instance variables
@@ -227,6 +232,10 @@ public class Play_Page extends World
     }
     
     private void play() {
+        addObject(new Grass(),200,220);
+        addObject(new Grass(),200,120);
+        addObject(new Grass(),200,300);
+        addObject(new Grass(),200,400);
         //trying to create image for blueCar on screen - ryan
         removeObject(clickBlue);
         //trying to create image for redcar on screen - ryan
