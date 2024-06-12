@@ -10,9 +10,13 @@ public class Play_Page extends World
 {
     private Car1 p1;
     private Car2 p2;
+    private RaceTrack raceTrack1;
+    private RaceTrack raceTrack2;
     // Instance variables
     private int car1Health;
     private int car2Health;
+    private int car1Distance;
+    private int car2Distance;
     private int distance;
     private int car1Coins;
     private int car2Coins;
@@ -54,11 +58,12 @@ public class Play_Page extends World
     // Flag to track if next button was clicked
     private boolean nextClicked = false;
     private boolean menuClicked = false;
+    private boolean finish = false;
     /**
      * Constructor for objects of class Play_Page.
      * 
      */
-    public Play_Page(Car1 p1, Car2 p2, int car1Health, int car2Health, int car1Speed, int car2Speed)
+    public Play_Page(Car1 p1, Car2 p2, int car1Health, int car2Health, int car1Speed, int car2Speed, int car1Coins, int car2Coins)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
@@ -78,7 +83,8 @@ public class Play_Page extends World
         // Stores original health
         initHealth1 = car1Health;
         initHealth2 = car2Health;
-        distance = 9000000;
+        car1Distance = 9000;
+        car2Distance = 9000;
         
         //scaling p1 - ryan
             GreenfootImage p1Img = new GreenfootImage(p1.getImage());
@@ -110,7 +116,7 @@ public class Play_Page extends World
     }
 
     public void act(){
-        if (play == 1) {
+    if (play == 1) {
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
@@ -133,10 +139,10 @@ public class Play_Page extends World
         showScore2();
         results();
         if (countDistance()) {
-            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2));
+            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
         }
         if (time == 0) {
-            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2));
+            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
         }
     }
     else if (play == 2) {
@@ -153,7 +159,6 @@ public class Play_Page extends World
             showText("Ready? ----->", 300, 50);
         }
     }
-    
     }
     
     public void addCar1Health(int damage) {
@@ -172,38 +177,61 @@ public class Play_Page extends World
         car2Coins += coins;
     }
     
-    private void results() {
-        if (car1Health == 0) {
+    public void results() {
+        if (car1Health == 0 || car1Health < 0) {
             showText("Car1 has died in a crash! Car2 has won!", 300, 200);
+            time -= 300;
         }
-        if (car2Health == 0) {
+        if (car2Health == 0 || car2Health < 0) {
             showText("Car2 has died in a crash! Car1 has won!", 300, 200);
+            time -= 300;
         }
+        if (win) {
+            time -= 300;
+        }
+        /*if (a == 0) {
+            showText("Car1 has won the race!", 300, 300);
+            win = true;
+            time -= 300;
+        }
+        else if (a == 1) {
+            showText("Car2 has won the race!", 300, 300);
+            win = true;
+            time -= 300;
+        }*/
     }
     
     public void win(int a) {
         if (a == 0) {
             showText("Car1 has won the race!", 300, 300);
-            win = true;
-            time -= 10000;
         }
         else if (a == 1) {
             showText("Car2 has won the race!", 300, 300);
-            win = true;
-            time -= 10000;
         }
+        win = true;
     }
     
     public boolean countDistance() {
-        if (distance > 0) {
-            distance -= 10000;
+        if (car1Distance > 0) {
+            car1Distance -= p1.getSpeed();
         }
-        else if (distance == 0) {
+        else if (car1Distance == 0) {
             return true;
         }
-        showDistance();
-        if (distance == 6000000) {
-            addObject(new FinishLine(), 300, 0); 
+        if (car2Distance > 0) {
+            car2Distance -= p2.getSpeed();
+        }
+        else if (car2Distance == 0) {
+            return true;
+        }
+        //showDistance();
+        if (car1Distance < 2000 && !finish) {
+            addObject(new FinishLine(), 480, 0); 
+            finish = true; 
+        }
+        if (car2Distance < 2000 && !finish) {
+            addObject(new FinishLine(), 150, 0);
+            finish = true; 
         }
         return false;
     }
@@ -214,10 +242,14 @@ public class Play_Page extends World
     
     private void showScore() {
         showText("Car1 Health: " + car1Health, 80, 25);
+        showText("Car1 Coins: " + car1Coins, 80, 40);
+        showText("Distance1: " + car1Distance, 100, 55);
     }
     
     private void showScore2() {
         showText("Car2 Health: " + car2Health, 500, 25);
+        showText("Car2 Coins: " + car2Coins, 500, 40);
+        showText("Distance2: " + car2Distance, 500, 55);
     }
     
     private void play() {
@@ -231,6 +263,7 @@ public class Play_Page extends World
         removeObject(clickMed);
         //add menu button
         removeObject(menu);
+        showText("",300,50);
         
         //add next button
         removeObject(next);
@@ -308,6 +341,7 @@ public class Play_Page extends World
                 step++;
             }
             else if (step == 2){
+                step++;
                 play();
                 play = 1; 
             }
@@ -325,7 +359,7 @@ public class Play_Page extends World
     //if the blue car is clicked for either player - ryan
     public void blueClick(){
         GreenfootImage blueImg = new GreenfootImage("car01-n.png");
-        blueImg.scale(blueImg.getWidth() * 3, blueImg.getHeight() * 3);
+        //blueImg.scale(blueImg.getWidth() * 3, blueImg.getHeight() * 3);
         if (Greenfoot.mouseClicked(clickBlue)|| Greenfoot.isKeyDown("1")){
             //player1 click
             if(step != 1){
@@ -341,7 +375,7 @@ public class Play_Page extends World
     
     public void redClick(){
         GreenfootImage redImg = new GreenfootImage("car02-n.png");
-        redImg.scale(redImg.getWidth() * 3, redImg.getHeight() * 3);
+        //redImg.scale(redImg.getWidth() * 3, redImg.getHeight() * 3);
         if ((Greenfoot.mouseClicked(clickRed)|| Greenfoot.isKeyDown("2"))){
             if(step != 1){
                 //player1 click
@@ -356,7 +390,7 @@ public class Play_Page extends World
     
     public void medClick(){
         GreenfootImage medImg = new GreenfootImage("ambulance.png");
-        medImg.scale(medImg.getWidth() / 2, medImg.getHeight() /2);
+        medImg.scale(medImg.getWidth() / 4, medImg.getHeight() /4);
         medImg.rotate(90);
         if (Greenfoot.mouseClicked(clickMed) || Greenfoot.isKeyDown("3")){
             if(step != 1){
@@ -372,7 +406,7 @@ public class Play_Page extends World
     
     public void batClick(){
         GreenfootImage batImg = new GreenfootImage("batmobile.png");
-        batImg.scale(batImg.getWidth() / 5, batImg.getHeight() / 5);
+        batImg.scale(batImg.getWidth() / 12, batImg.getHeight() / 12);
         batImg.rotate(180);
         if (Greenfoot.mouseClicked(clickBat) || Greenfoot.isKeyDown("4")){
             //player1 click

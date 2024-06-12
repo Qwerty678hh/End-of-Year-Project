@@ -17,6 +17,8 @@ public class EndGame extends World
     private int car2Health;
     private int car1Speed;
     private int car2Speed; 
+    private int car1Coins;
+    private int car2Coins;
     private PlayAgain pa;
     private Shop shop; 
     private StatsButton statsButton;
@@ -31,7 +33,7 @@ public class EndGame extends World
     private int player;
     private boolean home;
     
-    public EndGame(int car1Health, int car2Health, int car1Speed, int car2Speed)
+    public EndGame(int car1Health, int car2Health, int car1Speed, int car2Speed, int car1Coins, int car2Coins)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
@@ -60,6 +62,8 @@ public class EndGame extends World
         this.car2Health = car2Health;
         this.car1Speed = car1Speed;
         this.car2Speed = car2Speed;
+        this.car1Coins = car1Coins;
+        this.car2Coins = car2Coins;
         // Home
         homeButton = new Home();
     }
@@ -78,6 +82,12 @@ public class EndGame extends World
     
     public int getCar2Speed() {
         return car2Speed;
+    }
+    public int getCar1Coins() {
+        return car1Coins;
+    }
+    public int getCar2Coins() {
+        return car2Coins;
     }
     
     public boolean getHome() {
@@ -116,6 +126,7 @@ public class EndGame extends World
         addObject(healthBar, 550, 150);
         addObject(speedBar, 550, 450);
         if (player == 1) {
+            showText("Car1 Coins: " + car1Coins, 300, 50);
             // Health
             if (car1Health == 25) {
                 healthBar.setImage("Level1.png");
@@ -133,23 +144,24 @@ public class EndGame extends World
                 healthBar.setImage("Level5.png");
             }
             // Speed
-            if (car1Speed == 25) {
+            if (car1Speed == 4) {
                 speedBar.setImage("Level1.png");
             }
-            else if (car1Speed == 30) {
+            else if (car1Speed == 5) {
                 speedBar.setImage("Level2.png");
             }   
-            else if (car1Speed == 35) {
+            else if (car1Speed == 6) {
                 speedBar.setImage("Level3.png");
             }
-            else if (car1Speed == 40) {
+            else if (car1Speed == 7) {
                 speedBar.setImage("Level4.png");
             }
-            else if (car1Speed == 45) {
+            else if (car1Speed == 8) {
                 speedBar.setImage("Level5.png");
             }
         }
         else if (player == 2) {
+            showText("Car2 Coins: " + car2Coins, 300, 50);
             if (car2Health == 25) {
                 healthBar.setImage("Level1.png");
             }
@@ -165,11 +177,27 @@ public class EndGame extends World
             else if (car2Health == 45) {
                 healthBar.setImage("Level5.png");
             }
+            // Speed
+            if (car1Speed == 4) {
+                speedBar.setImage("Level1.png");
+            }
+            else if (car1Speed == 5) {
+                speedBar.setImage("Level2.png");
+            }   
+            else if (car1Speed == 6) {
+                speedBar.setImage("Level3.png");
+            }
+            else if (car1Speed == 7) {
+                speedBar.setImage("Level4.png");
+            }
+            else if (car1Speed == 8) {
+                speedBar.setImage("Level5.png");
+            }
         }
     }
     
     public void healthUpgrade() {
-        if (player == 1) {
+        if (player == 1 && car1Coins >= 10) {
             if (car1Health == 25) {
                 car1Health += 5;
                 healthBar.setImage("Level2.png");
@@ -186,8 +214,9 @@ public class EndGame extends World
                 car1Health += 5;
                 healthBar.setImage("Level5.png");
             }
+            car1Coins -= 10;
         }
-        else if (player == 2) {
+        else if (player == 2 && car2Coins >= 10) {
             if (car2Health == 25) {
                 car2Health += 5;
                 healthBar.setImage("Level2.png");
@@ -204,10 +233,53 @@ public class EndGame extends World
                 car2Health += 5;
                 healthBar.setImage("Level5.png");
             }
+            car2Coins -= 10;
+        }
+    }
+    
+    public void speedUpgrade() {
+        if (player == 1 && car1Coins >= 10) {
+            if (car1Speed == 4) {
+                car1Speed++;
+                speedBar.setImage("Level2.png");
+            }   
+            else if (car1Speed == 5) {
+                car1Speed++;
+                speedBar.setImage("Level3.png");
+            }
+            else if (car1Speed == 6) {
+                car1Speed++;
+                speedBar.setImage("Level4.png");
+            }
+            else if (car1Speed == 7) {
+                car1Speed++;
+                speedBar.setImage("Level5.png");
+            }
+            car1Coins -= 10;
+        }
+        else if (player == 2 && car2Coins >= 10) {
+            if (car2Speed == 4) {
+                car2Speed++;
+                speedBar.setImage("Level2.png");
+            }   
+            else if (car2Speed == 5) {
+                car2Speed++;
+                speedBar.setImage("Level3.png");
+            }
+            else if (car2Speed == 6) {
+                car2Speed++;
+                speedBar.setImage("Level4.png");
+            }
+            else if (car2Speed == 7) {
+                car2Speed++;
+                speedBar.setImage("Level5.png");
+            }
+            car2Coins -= 10;
         }
     }
     
     public void home() {
+        showText("",300,50);
         removeObject(car1Button);
         removeObject(car2Button);
         removeObject(healthBar);

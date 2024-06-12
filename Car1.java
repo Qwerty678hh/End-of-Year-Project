@@ -38,6 +38,10 @@ public class Car1 extends Actor {
         speedCounter();
     }
     
+    public int getSpeed() {
+        return speed;
+    }
+    
     private void checkKeyPress() {
         if (Greenfoot.isKeyDown("right")) {
             setLocation(getX() + speed, getY());
@@ -68,15 +72,11 @@ public class Car1 extends Actor {
     private void checkCollision() {
         Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
-            playPage.addCar1Health(-10);
+            //playPage.addCar1Health(-10);
             removeTouching(Car3.class);
         }
         if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(0);
-        }
-        if (isTouching(SpeedBoost.class)) {
-            removeTouching(SpeedBoost.class);
-            setLocation(getX(), getY() -100);
         }
         if (isTouching(OilSpill.class)) {
             speed = 1;

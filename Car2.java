@@ -33,9 +33,13 @@ public class Car2 extends Actor
             //getWorld().removeObject(this);
         //}
         checkKeyPress();
-        //checkCollision();
+        checkCollision();
         oilCounter();
         speedCounter();
+    }
+    
+    public int getSpeed() {
+        return speed;
     }
     
     private void checkKeyPress() {
@@ -50,7 +54,7 @@ public class Car2 extends Actor
         }
         if (Greenfoot.isKeyDown("s")) {
             setLocation(getX(), getY() + speed);
-            setLocation(getX(), getY() + 6);
+            //setLocation(getX(), getY() + 6);
         }
         if(Greenfoot.isKeyDown("r")){
             getWorld().addObject(new Rocket(), getX(), getY() + 20);
@@ -63,18 +67,15 @@ public class Car2 extends Actor
     private void checkCollision() {
         Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
-            playPage.addCar2Health(-10);
+            //playPage.addCar2Health(-10);
             removeTouching(Car3.class);
         }
          if (isTouching(FinishLine.class) && !playPage.getWin()) {
             playPage.win(1);
         }
-        if (isTouching(SpeedBoost.class)) {
-            removeTouching(SpeedBoost.class);
-            setLocation(getX(), getY() -100);
-        }
         if (isTouching(OilSpill.class)) {
             speed = 1;
+            a = 1;
             removeTouching(OilSpill.class);
         }
         if (isTouching(SpeedBoost.class)) {

@@ -14,7 +14,7 @@ public class FinishLine extends Actor
      */
     public FinishLine() {
         GreenfootImage finish = getImage();
-        finish.scale(finish.getWidth() * 2, finish.getHeight());
+        finish.scale(finish.getWidth() / 2, finish.getHeight());
         setImage(finish);
     }
     
