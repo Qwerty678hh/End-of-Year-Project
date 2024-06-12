@@ -131,6 +131,7 @@ public class Play_Page extends World
         }
         showScore();
         showScore2();
+        showBlank();
         results();
         if (countDistance()) {
             Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2));
@@ -209,15 +210,19 @@ public class Play_Page extends World
     }
     
     private void showDistance() {
-        showText("Distance: " + distance, 100, 100);
+        showText("Distance: " + distance, 106, 100);
+    }
+    
+    private void showBlank() {
+        showText("", 300, 50);
     }
     
     private void showScore() {
-        showText("Car1 Health: " + car1Health, 80, 25);
+        showText("Car1 Health: " + car1Health, 90, 25);
     }
     
     private void showScore2() {
-        showText("Car2 Health: " + car2Health, 500, 25);
+        showText("Car2 Health: " + car2Health, 506, 25);
     }
     
     private void play() {
@@ -320,6 +325,7 @@ public class Play_Page extends World
             }
             else if (step == 2){
                 play();
+                showText("", 300, 50);
                 play = 1; 
             }
             nextClicked = true; // Set the flag to prevent multiple increments
