@@ -116,21 +116,21 @@ public class Play_Page extends World
 
     public void act(){
         if (play == 1) {
-        if (Greenfoot.getRandomNumber(100) < 1) {
+        if (Greenfoot.getRandomNumber(1000) < 1) {
             addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
         }
         if (Greenfoot.getRandomNumber(100) < 1) {
             addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
         }
-        if (Greenfoot.getRandomNumber(1000) < 7)
+        if (Greenfoot.getRandomNumber(1000) < 6)
         {
             addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
         }
-        if (Greenfoot.getRandomNumber(1000) < 7)
+        if (Greenfoot.getRandomNumber(1000) < 6)
         {
             addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
         }
-        if (Greenfoot.getRandomNumber(1000) < 7)
+        if (Greenfoot.getRandomNumber(1000) < 6)
         {
             addObject(new Coin(), Greenfoot.getRandomNumber(600), 0);
         }
@@ -267,10 +267,10 @@ public class Play_Page extends World
         p2.setImage(p2Img);
         
         
-        addObject(new RaceTrack(), 100, 0);
-        addObject(new RaceTrack(), 500, 0);
-        addObject(p2, 372, 328);
-        addObject(p1, 116, 328);
+        addObject(new RaceTrack(), 110, 0);
+        addObject(new RaceTrack(), 490, 0);
+        addObject(p2, 476, 470);
+        addObject(p1, 116, 470);
     }
     
     private void controlDot(){

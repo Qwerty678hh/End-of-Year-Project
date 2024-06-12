@@ -36,6 +36,7 @@ public class Car2 extends Actor
         checkCollision();
         oilCounter();
         speedCounter();
+        checkLocation();
     }
     
     private void checkKeyPress() {
@@ -56,7 +57,6 @@ public class Car2 extends Actor
             getWorld().addObject(new Rocket(), getX(), getY() + 20);
             //
             setLocation(getX(), getY() + speed);
-            setLocation(getX(), getY() + 6);
         }
     }
     
@@ -105,6 +105,12 @@ public class Car2 extends Actor
         }
         else if (b == 1) {
             speedTime -= 50;
+        }
+    }
+    
+    private void checkLocation() {
+        if (getY() == 0) {
+            setLocation(getX(), 450);
         }
     }
 }
