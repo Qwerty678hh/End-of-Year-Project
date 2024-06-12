@@ -232,6 +232,7 @@ public class Play_Page extends World
         //add menu button
         removeObject(menu);
         
+        showText("", 300, 50);
         //add next button
         removeObject(next);
         
@@ -240,13 +241,22 @@ public class Play_Page extends World
         
         //player 2 image -  ryan
         removeObject(p2);
+        
+        GreenfootImage p1Img = new GreenfootImage(p1.getImage());
+        p1Img.scale(p1Img.getWidth() / 2, p1Img.getHeight() / 2);
+        p1.setImage(p1Img);
+        
+        GreenfootImage p2Img = new GreenfootImage(p2.getImage());
+        p2Img.scale(p2Img.getWidth() / 2, p2Img.getHeight() / 2);
+        p2.setImage(p2Img);
+        
         addObject(new RaceTrack(), 100, 0);
         addObject(new RaceTrack(), 500, 0);
         addObject(p1, 372, 328);
         addObject(p2, 116, 328);
     }
     
-    // Settings
+    // Settings page settings
     public void HandleClicks(){
         redClick();
         blueClick();
@@ -255,6 +265,7 @@ public class Play_Page extends World
         menuReturn();
         incrementStep();
     }
+    
     public void prepare(){
         //trying to create image for blueCar on screen - ryan
         addObject(clickBlue, 240, 200);
