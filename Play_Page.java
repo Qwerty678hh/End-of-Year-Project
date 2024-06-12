@@ -45,6 +45,9 @@ public class Play_Page extends World
     //create menu button
     menuButton menu = new menuButton();
         
+    //make indicator dot
+    private dot dot1;
+    
     //steps are sequencial order of events - ryan
     //step 0 is player 1 choice, when they are ready to move on they press next
     //step 1 is player 2 choice, when they are ready to move on they press next
@@ -65,10 +68,7 @@ public class Play_Page extends World
         // Adds racetrack and cars
         this.p1 = p1;
         this.p2 = p2;
-        /*addObject(new RaceTrack(), 100, 0);
-        addObject(new RaceTrack(), 500, 0);
-        addObject(p1, 372, 328);
-        addObject(p2, 116, 328);*/
+        dot1 = new dot();
         // Current health
         this.car1Health = car1Health;
         this.car2Health = car2Health;
@@ -142,7 +142,7 @@ public class Play_Page extends World
     }
     else if (play == 2) {
         HandleClicks();
-        
+        controlDot();
         if(step < 1){
             showText("Player 1, pick a car", 300, 50);
         }
@@ -204,6 +204,7 @@ public class Play_Page extends World
         }
         showDistance();
         if (distance == 6000000) {
+            
             addObject(new FinishLine(), 300, 0); 
         }
         return false;
@@ -246,7 +247,7 @@ public class Play_Page extends World
         
         //player 2 image -  ryan
         removeObject(p2);
-        
+        getObjects(dot.class);
         GreenfootImage p1Img = new GreenfootImage(p1.getImage());
         p1Img.scale(p1Img.getWidth() / 2, p1Img.getHeight() / 2);
         p1.setImage(p1Img);
@@ -255,10 +256,28 @@ public class Play_Page extends World
         p2Img.scale(p2Img.getWidth() / 2, p2Img.getHeight() / 2);
         p2.setImage(p2Img);
         
+        
         addObject(new RaceTrack(), 100, 0);
         addObject(new RaceTrack(), 500, 0);
         addObject(p1, 372, 328);
         addObject(p2, 116, 328);
+    }
+    
+    private void controlDot(){
+        if(step == 0){
+            if (!getObjects(dot.class).contains(dot1)) {
+                addObject(dot1, 170, 480);
+            } else {
+                dot1.setLocation(170, 480);
+            }
+        } 
+        else if(step != 0){
+            if (getObjects(dot.class).contains(dot1)) {
+                dot1.setLocation(420, 480);
+            } else {
+                addObject(dot1, 420, 480);
+            }
+        }
     }
     
     // Settings page settings
@@ -272,6 +291,7 @@ public class Play_Page extends World
     }
     
     public void prepare(){
+        controlDot();
         //trying to create image for blueCar on screen - ryan
         addObject(clickBlue, 240, 200);
         //trying to create image for redcar on screen - ryan
@@ -283,11 +303,11 @@ public class Play_Page extends World
         
         //numbers on screen to indicate which car - ryan
         GreenfootImage num1 = new GreenfootImage("num1.png");
-        num1.scale(num1.getWidth()/23, num1.getHeight()/23);
-        getBackground().drawImage(num1, 35, 320);
+        num1.scale(num1.getWidth()/15, num1.getHeight()/15);
+        getBackground().drawImage(num1, 35, 440);
         GreenfootImage num2 = new GreenfootImage("num2.png");
         num2.scale(num1.getWidth(), num1.getHeight());
-        getBackground().drawImage(num2, 505, 320);
+        getBackground().drawImage(num2, 460, 440);
         
         //numbers on screen to indicate which car - ryan
         GreenfootImage num1v2 = new GreenfootImage("num1.png");
