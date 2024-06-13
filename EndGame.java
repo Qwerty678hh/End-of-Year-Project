@@ -74,6 +74,10 @@ public class EndGame extends World
         this.car2Coins = car2Coins;
         // Home
         homeButton = new Home();
+        this.med1 = med1;
+        this.bat1 = bat1;
+        this.med2 = med2;
+        this.bat2 = bat2;
     }
     
     public int getCar1Health() {
@@ -151,27 +155,27 @@ public class EndGame extends World
     }
     
     public void batButton() {
-        if (player == 1 && car1Coins >= 100) {
+        if (player == 1 && car1Coins >= 500 && !bat1) {
             bat1 = true;
-            car1Coins -= 100;
+            car1Coins -= 500;
             showText("Car1 Coins: " + car1Coins, 300, 50);
         }
-        else if (player == 2 && car2Coins >= 100) {
+        else if (player == 2 && car2Coins >= 100 && !bat2) {
             bat2 = true;
-            car2Coins -= 100;
+            car2Coins -= 500;
             showText("Car2 Coins: " + car2Coins, 300, 50);
         }
     }
     
     public void medButton() {
-        if (player == 1 && car1Coins >= 100) {
+        if (player == 1 && car1Coins >= 500 && !med1) {
             med1 = true;
-            car1Coins -= 100;
+            car1Coins -= 500;
             showText("Car1 Coins: " + car1Coins, 300, 50);
         }
-        else if (player == 2 && car2Coins >= 100) {
+        else if (player == 2 && car2Coins >= 500 && !med2) {
             med2 = true;
-            car2Coins -= 100;
+            car2Coins -= 500;
             showText("Car2 Coins: " + car2Coins, 300, 50);
         }
     }
@@ -255,7 +259,7 @@ public class EndGame extends World
     }
     
     public void healthUpgrade() {
-        if (player == 1 && car1Coins >= 10) {
+        if (player == 1 && car1Coins >= 50) {
             if (car1Health == 25) {
                 car1Health += 5;
                 healthBar.setImage("Level2.png");
@@ -272,10 +276,10 @@ public class EndGame extends World
                 car1Health += 5;
                 healthBar.setImage("Level5.png");
             }
-            car1Coins -= 10;
+            car1Coins -= 50;
             showText("Car1 Coins: " + car1Coins, 300, 50);
         }
-        else if (player == 2 && car2Coins >= 10) {
+        else if (player == 2 && car2Coins >= 50) {
             if (car2Health == 25) {
                 car2Health += 5;
                 healthBar.setImage("Level2.png");
@@ -292,13 +296,13 @@ public class EndGame extends World
                 car2Health += 5;
                 healthBar.setImage("Level5.png");
             }
-            car2Coins -= 10;
+            car2Coins -= 50;
             showText("Car2 Coins: " + car2Coins, 300, 50);
         }
     }
     
     public void speedUpgrade() {
-        if (player == 1 && car1Coins >= 10) {
+        if (player == 1 && car1Coins >= 50) {
             if (car1Speed == 4) {
                 car1Speed++;
                 speedBar.setImage("Level2.png");
@@ -315,10 +319,10 @@ public class EndGame extends World
                 car1Speed++;
                 speedBar.setImage("Level5.png");
             }
-            car1Coins -= 10;
+            car1Coins -= 50;
             showText("Car1 Coins: " + car1Coins, 300, 50);
         }
-        else if (player == 2 && car2Coins >= 10) {
+        else if (player == 2 && car2Coins >= 50) {
             if (car2Speed == 4) {
                 car2Speed++;
                 speedBar.setImage("Level2.png");
@@ -335,7 +339,7 @@ public class EndGame extends World
                 car2Speed++;
                 speedBar.setImage("Level5.png");
             }
-            car2Coins -= 10;
+            car2Coins -= 50;
             showText("Car2 Coins: " + car2Coins, 300, 50);
         }
     }

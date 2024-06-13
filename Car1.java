@@ -75,7 +75,7 @@ public class Car1 extends Actor {
     private void checkCollision() {
         Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
-            //playPage.addCar1Health(-10);
+            playPage.addCar1Health(-5);
             removeTouching(Car3.class);
         }
         if (isTouching(FinishLine.class) && !playPage.getWin()) {
