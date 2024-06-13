@@ -28,7 +28,10 @@ public class OilSpill extends Actor
     }
     
     private void checkLocation() {
-        if (getY() == 599) {
+        if(getX()>=250 && getX()<=340){
+            getWorld().removeObject(this);
+        }
+        else if (getY() == 599) {
             getWorld().removeObject(this);
         }
     }
