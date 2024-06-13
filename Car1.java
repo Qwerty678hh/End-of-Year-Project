@@ -76,6 +76,7 @@ public class Car1 extends Actor {
         Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
             playPage.addCar1Health(-5);
+            playPage.addCar1Health(-10);
             removeTouching(Car3.class);
         }
         if (isTouching(FinishLine.class) && !playPage.getWin()) {

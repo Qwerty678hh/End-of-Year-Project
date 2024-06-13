@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Grass extends Actor
 {
     public Grass(){
+        GreenfootImage grass = new GreenfootImage("grass.png");
+        setImage(grass);
         turn(90);
     }
     /**

@@ -160,6 +160,10 @@ public class Play_Page extends World
             }
             if (time == 0) {
                 Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins,med1,bat1,med1,bat2));
+                Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins, med1,bat1,med2,bat2));            
+            }
+            if (time == 0) {
+                Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins, med1, bat1,med2,bat2));            
             }
         }
         else if (play == 2) {
@@ -176,6 +180,7 @@ public class Play_Page extends World
                 showText("Ready? ----->", 300, 50);
             }
         }
+
         /*if (Greenfoot.getRandomNumber(1000) < 6)
         {
             addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
@@ -211,6 +216,7 @@ public class Play_Page extends World
     }*/
     
     
+
     public void addCar1Health(int damage) {
         car1Health += damage;
     }
@@ -295,15 +301,15 @@ public class Play_Page extends World
     }
     
     private void showScore() {
-        showText("Car1 Health: " + car1Health, 80, 25);
-        showText("Car1 Distance: " + car1Distance, 80, 40);
-        showText("Car1 Coins: " + car1Coins, 80, 55);
+        showText("Car1 Health: " + car1Health, 105, 15);
+        showText("Car1 Distance: " + car1Distance, 120, 45);
+        showText("Car1 Coins: " + car1Coins, 105, 70);
     }
     
     private void showScore2() {
-        showText("Car2 Health: " + car2Health, 500, 25);
-        showText("Car2 Distance: " + car2Distance, 500, 40);
-        showText("Car2 Coins: " + car2Coins, 500, 55);
+        showText("Car2 Health: " + car2Health, 480, 15);
+        showText("Car2 Distance: " + car2Distance, 480, 45);
+        showText("Car2 Coins: " + car2Coins, 480, 70);
     }
     
     private void play() {
@@ -335,12 +341,15 @@ public class Play_Page extends World
         getObjects(dot.class);
         
         GreenfootImage p1Img = new GreenfootImage(p1.getImage());
+//<<<<<<< HEAD
         //p1Img.scale(p1Img.getWidth() / 2, p1Img.getHeight() / 2);
         //p1.setImage(p1Img);
         
         GreenfootImage p2Img = new GreenfootImage(p2.getImage());
         //p2Img.scale(p2Img.getWidth() / 2, p2Img.getHeight() / 2);
         //p2.setImage(p2Img);
+//=======
+//>>>>>>> c0a51fa58848020c249291cb29f2de3240f242a1
         p1Img.scale(p1Img.getWidth() / 3, p1Img.getHeight() / 3);
         p1.setImage(p1Img);
         

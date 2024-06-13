@@ -68,6 +68,7 @@ public class Car2 extends Actor
         Play_Page playPage = (Play_Page)getWorld();
         if (isTouching(Car3.class)) {
             playPage.addCar2Health(-5);
+            playPage.addCar2Health(-10);
             removeTouching(Car3.class);
         }
          if (isTouching(FinishLine.class) && !playPage.getWin()) {
@@ -113,7 +114,7 @@ public class Car2 extends Actor
         if (getY() == 0) {
             setLocation(getX(), 450);
         }
-        if(getX()==340){
+        if(getX()<= 340){
             setLocation(476, getY());
         }
     }
