@@ -32,8 +32,16 @@ public class EndGame extends World
     private Home homeButton;
     private int player;
     private boolean home;
+    private medCar med = new medCar();
+    private batCar bat = new batCar();
+    private MedButton medButton = new MedButton();
+    private BatButton batButton = new BatButton();
+    private boolean med1;
+    private boolean bat1;
+    private boolean med2;
+    private boolean bat2;
     
-    public EndGame(int car1Health, int car2Health, int car1Speed, int car2Speed, int car1Coins, int car2Coins)
+    public EndGame(int car1Health, int car2Health, int car1Speed, int car2Speed, int car1Coins, int car2Coins, boolean med1, boolean bat1, boolean med2, boolean bat2)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
@@ -71,15 +79,12 @@ public class EndGame extends World
     public int getCar1Health() {
         return car1Health;
     }
-    
     public int getCar2Health() {
         return car2Health;
     }
-    
     public int getCar1Speed() {
         return car1Speed;
     }
-    
     public int getCar2Speed() {
         return car2Speed;
     }
@@ -88,6 +93,18 @@ public class EndGame extends World
     }
     public int getCar2Coins() {
         return car2Coins;
+    }
+    public boolean getMed1() {
+        return med1;
+    }
+    public boolean getBat1() {
+        return bat1;
+    }
+    public boolean getMed2() {
+        return med2;
+    }
+    public boolean getBat2() {
+        return bat2;
     }
     
     public boolean getHome() {
@@ -116,6 +133,47 @@ public class EndGame extends World
         addObject(statsButton, 300, 200);
         addObject(skinsButton, 300, 300);
         player = 2;
+    }
+    
+    public void skins() {
+        removeObject(statsButton);
+        removeObject(skinsButton);
+        addObject(medButton, 250, 150);
+        addObject(batButton, 250, 450);
+        addObject(med, 450, 150);
+        addObject(bat, 450, 450);
+        if (player == 1) {
+            showText("Car1 Coins: " + car1Coins, 300, 50);
+        }
+        else if (player == 2) {
+            showText("Car2 Coins: " + car2Coins, 300, 50);
+        }
+    }
+    
+    public void batButton() {
+        if (player == 1 && car1Coins >= 100) {
+            bat1 = true;
+            car1Coins -= 100;
+            showText("Car1 Coins: " + car1Coins, 300, 50);
+        }
+        else if (player == 2 && car2Coins >= 100) {
+            bat2 = true;
+            car2Coins -= 100;
+            showText("Car2 Coins: " + car2Coins, 300, 50);
+        }
+    }
+    
+    public void medButton() {
+        if (player == 1 && car1Coins >= 100) {
+            med1 = true;
+            car1Coins -= 100;
+            showText("Car1 Coins: " + car1Coins, 300, 50);
+        }
+        else if (player == 2 && car2Coins >= 100) {
+            med2 = true;
+            car2Coins -= 100;
+            showText("Car2 Coins: " + car2Coins, 300, 50);
+        }
     }
     
     public void stats() {
@@ -215,6 +273,7 @@ public class EndGame extends World
                 healthBar.setImage("Level5.png");
             }
             car1Coins -= 10;
+            showText("Car1 Coins: " + car1Coins, 300, 50);
         }
         else if (player == 2 && car2Coins >= 10) {
             if (car2Health == 25) {
@@ -234,6 +293,7 @@ public class EndGame extends World
                 healthBar.setImage("Level5.png");
             }
             car2Coins -= 10;
+            showText("Car2 Coins: " + car2Coins, 300, 50);
         }
     }
     
@@ -256,6 +316,7 @@ public class EndGame extends World
                 speedBar.setImage("Level5.png");
             }
             car1Coins -= 10;
+            showText("Car1 Coins: " + car1Coins, 300, 50);
         }
         else if (player == 2 && car2Coins >= 10) {
             if (car2Speed == 4) {
@@ -275,6 +336,7 @@ public class EndGame extends World
                 speedBar.setImage("Level5.png");
             }
             car2Coins -= 10;
+            showText("Car2 Coins: " + car2Coins, 300, 50);
         }
     }
     
@@ -289,6 +351,10 @@ public class EndGame extends World
         removeObject(speedBar);
         removeObject(speedUpgrade);
         removeObject(statsButton);
+        removeObject(medButton);
+        removeObject(batButton);
+        removeObject(med);
+        removeObject(bat);
         addObject(pa, 300, 100);
         addObject(shop, 300, 300);
     }

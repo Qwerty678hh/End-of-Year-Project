@@ -125,7 +125,7 @@ public class Settings_Page extends World
                 step++;
             }
             else if (step == 2){
-                Greenfoot.setWorld(new Play_Page(new Car1(4), new Car2(4), 25, 25, 4, 4)); 
+                //Greenfoot.setWorld(new Play_Page(new Car1(4), new Car2(4), 25, 25, 4, 4)); 
             }
             nextClicked = true; // Set the flag to prevent multiple increments
         }

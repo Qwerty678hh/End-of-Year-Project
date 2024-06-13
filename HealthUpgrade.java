@@ -24,8 +24,5 @@ public class HealthUpgrade extends Actor
         if (Greenfoot.mouseClicked(this)) {
             endGame.healthUpgrade();
         }
-        if (endGame.getHome()) {
-            getWorld().removeObject(this);
-        }
     }
 }

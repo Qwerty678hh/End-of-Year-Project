@@ -66,12 +66,19 @@ public class Play_Page extends World
     // Flag to track if next button was clicked
     private boolean nextClicked = false;
     private boolean menuClicked = false;
-    private boolean finish = false;
+    private boolean finish1 = false;
+    private boolean finish2 = false;
+    private boolean med1;
+    private boolean med2;
+    private boolean bat1;
+    private boolean bat2;
+    GreenfootImage num3 = new GreenfootImage("num3.png");
+    GreenfootImage num4 = new GreenfootImage("num4.png");
     /**
      * Constructor for objects of class Play_Page.
      * 
      */
-    public Play_Page(Car1 p1, Car2 p2, int car1Health, int car2Health, int car1Speed, int car2Speed, int car1Coins, int car2Coins)
+    public Play_Page(Car1 p1, Car2 p2, int car1Health, int car2Health, int car1Speed, int car2Speed, int car1Coins, int car2Coins, boolean med1, boolean bat1, boolean med2, boolean bat2)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
@@ -101,10 +108,14 @@ public class Play_Page extends World
             p2Img.scale(p2Img.getWidth()/3, p2Img.getHeight()/3);
             p2.setImage(p2Img);
         win = false;
-        car1Coins = 0;
-        car2Coins = 0;
+        this.car1Coins = car1Coins;
+        this.car2Coins = car2Coins; 
         time = 30000;
         play = 2;
+        this.med1 = med1;
+        this.bat1 = bat1;
+        this.med2 = med2;
+        this.bat2 = bat2;
         prepare();
     }
     
@@ -132,11 +143,7 @@ public class Play_Page extends World
         {
             addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
         }
-        if (Greenfoot.getRandomNumber(1000) < 6)
-        {
-            addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
-        }
-        if (Greenfoot.getRandomNumber(1000) < 6)
+        if (Greenfoot.getRandomNumber(100) < 6)
         {
             addObject(new Coin(), Greenfoot.getRandomNumber(600), 0);
         }
@@ -145,10 +152,10 @@ public class Play_Page extends World
         showBlank();
         results();
         if (countDistance()) {
-            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
+            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins, med1, bat1,med2,bat2));
         }
         if (time == 0) {
-            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
+            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins, med1, bat1,med2,bat2));
         }
     }
     else if (play == 2) {
@@ -230,9 +237,14 @@ public class Play_Page extends World
         else if (car2Distance == 0) {
             return true;
         }
-        showDistance();
-        if (distance == 6000000) {
-            addObject(new FinishLine(), 300, 0); 
+        //showDistance();
+        if (car1Distance < 2000 && !finish1) {
+            addObject(new FinishLine(), 100, 0); 
+            finish1 = true; 
+        }
+        if (car2Distance < 2000 && !finish2) {
+            addObject(new FinishLine(), 500, 0); 
+            finish2 = true; 
         }
         return false;
     }
@@ -247,10 +259,14 @@ public class Play_Page extends World
     
     private void showScore() {
         showText("Car1 Health: " + car1Health, 80, 25);
+        showText("Car1 Distance: " + car1Distance, 80, 40);
+        showText("Car1 Coins: " + car1Coins, 80, 55);
     }
     
     private void showScore2() {
         showText("Car2 Health: " + car2Health, 500, 25);
+        showText("Car2 Distance: " + car2Distance, 500, 40);
+        showText("Car2 Coins: " + car2Coins, 500, 55);
     }
     
     private void play() {
@@ -283,11 +299,11 @@ public class Play_Page extends World
         
         GreenfootImage p1Img = new GreenfootImage(p1.getImage());
         p1Img.scale(p1Img.getWidth() / 2, p1Img.getHeight() / 2);
-        p1.setImage(p1Img);
+        //p1.setImage(p1Img);
         
         GreenfootImage p2Img = new GreenfootImage(p2.getImage());
         p2Img.scale(p2Img.getWidth() / 2, p2Img.getHeight() / 2);
-        p2.setImage(p2Img);
+        //p2.setImage(p2Img);
         
         
         addObject(new RaceTrack(), 110, 0);
@@ -324,15 +340,6 @@ public class Play_Page extends World
     }
     
     public void prepare(){
-        controlDot();
-        //trying to create image for blueCar on screen - ryan
-        addObject(clickBlue, 240, 200);
-        //trying to create image for redcar on screen - ryan
-        addObject(clickRed, 240, 340);
-        //trying to create image for batmobile on screen - ryan
-        addObject(clickBat, 370, 340);
-        //trying to create image for ambulance on screen - ryan
-        addObject(clickMed, 370, 200);
         
         //numbers on screen to indicate which car - ryan
         GreenfootImage num1 = new GreenfootImage("num1.png");
@@ -356,6 +363,22 @@ public class Play_Page extends World
         num4.scale(num1v2.getWidth(), num1v2.getHeight());
         getBackground().drawImage(num4, 350, 250);
         
+        controlDot();
+        //trying to create image for blueCar on screen - ryan
+        addObject(clickBlue, 240, 200);
+        //trying to create image for redcar on screen - ryan
+        addObject(clickRed, 240, 340);
+        //trying to create image for batmobile on screen - ryan
+        if (bat1) {
+            addObject(clickBat, 370, 340);
+            //getBackground().drawImage(num4, 350, 250);
+        }
+        //trying to create image for ambulance on screen - ryan
+        if (med1) {
+            addObject(clickMed, 370, 200);
+            //getBackground().drawImage(num3, 350, 110);
+        }
+        
         //add menu button
         addObject(menu, 50, 20);
         
@@ -375,6 +398,20 @@ public class Play_Page extends World
 
             if(step != 2){
                 step++;
+                if (med2) {
+                    addObject(clickMed, 370, 200);
+                    getBackground().drawImage(num3, 350, 110);
+                }
+                else {
+                    removeObject(clickMed);
+                }
+                if (bat2) {
+                    addObject(clickBat, 370, 340);
+                    getBackground().drawImage(num4, 350, 250);
+                }
+                else {
+                    removeObject(clickBat);
+                }
             }
             else if (step == 2){
                 step++;
@@ -465,6 +502,34 @@ public class Play_Page extends World
             Greenfoot.setWorld(new HomePage());
         } else {
             step--;
+            if (med2 && step == 1) {
+                addObject(clickMed, 370, 200);
+                getBackground().drawImage(num3, 350, 110);
+            }
+            else if (step == 1) {
+                removeObject(clickMed);
+            }
+            if (bat2 && step == 1) {
+                addObject(clickBat, 370, 340);
+                getBackground().drawImage(num4, 350, 250);
+            }
+            else if (step == 1) {
+                    removeObject(clickBat);
+                }
+            if (med1 && step == 0) {
+                addObject(clickMed, 370, 200);
+                getBackground().drawImage(num3, 350, 110);
+            }
+            else if (step == 0) {
+                removeObject(clickMed);
+            }
+            if (bat1 && step == 0) {
+                addObject(clickBat, 370, 340);
+                getBackground().drawImage(num4, 350, 250);
+            }
+            else if (step == 0) {
+                    removeObject(clickBat);
+                }
         }
         menuClicked = true; // Set the flag to prevent multiple decrements
     }

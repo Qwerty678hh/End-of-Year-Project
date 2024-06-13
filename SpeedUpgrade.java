@@ -16,8 +16,8 @@ public class SpeedUpgrade extends Actor
     {
         // Add your action code here.
         EndGame endGame = (EndGame)getWorld();
-        if (endGame.getHome()) {
-            getWorld().removeObject(this);
+        if (Greenfoot.mouseClicked(this)) {
+            endGame.speedUpgrade();
         }
     }
 }
