@@ -122,7 +122,7 @@ public class Play_Page extends World
 
     public void act(){
         if (play == 1) {
-            if (Greenfoot.getRandomNumber(1000) < 1) {
+            if (Greenfoot.getRandomNumber(1000) < 7) {
                 addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
             }
             if (Greenfoot.getRandomNumber(100) < 1) {
