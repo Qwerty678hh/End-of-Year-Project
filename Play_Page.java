@@ -282,11 +282,11 @@ public class Play_Page extends World
         getObjects(dot.class);
         
         GreenfootImage p1Img = new GreenfootImage(p1.getImage());
-        p1Img.scale(p1Img.getWidth() / 2, p1Img.getHeight() / 2);
+        p1Img.scale(p1Img.getWidth() / 3, p1Img.getHeight() / 3);
         p1.setImage(p1Img);
         
         GreenfootImage p2Img = new GreenfootImage(p2.getImage());
-        p2Img.scale(p2Img.getWidth() / 2, p2Img.getHeight() / 2);
+        p2Img.scale(p2Img.getWidth() / 3, p2Img.getHeight() / 3);
         p2.setImage(p2Img);
         
         
@@ -396,7 +396,7 @@ public class Play_Page extends World
     //if the blue car is clicked for either player - ryan
     public void blueClick(){
         GreenfootImage blueImg = new GreenfootImage("car01-n.png");
-        //blueImg.scale(blueImg.getWidth() * 3, blueImg.getHeight() * 3);
+        blueImg.scale(blueImg.getWidth() * 3, blueImg.getHeight() * 3);
         if (Greenfoot.mouseClicked(clickBlue)|| Greenfoot.isKeyDown("1")){
             //player1 click
             if(step != 1){
@@ -412,7 +412,7 @@ public class Play_Page extends World
     
     public void redClick(){
         GreenfootImage redImg = new GreenfootImage("car02-n.png");
-        //redImg.scale(redImg.getWidth() * 3, redImg.getHeight() * 3);
+        redImg.scale(redImg.getWidth() * 3, redImg.getHeight() * 3);
         if ((Greenfoot.mouseClicked(clickRed)|| Greenfoot.isKeyDown("2"))){
             if(step != 1){
                 //player1 click
@@ -427,7 +427,7 @@ public class Play_Page extends World
     
     public void medClick(){
         GreenfootImage medImg = new GreenfootImage("ambulance.png");
-        medImg.scale(medImg.getWidth() / 4, medImg.getHeight() /4);
+        medImg.scale(medImg.getWidth() / 2, medImg.getHeight() / 2);
         medImg.rotate(90);
         if (Greenfoot.mouseClicked(clickMed) || Greenfoot.isKeyDown("3")){
             if(step != 1){
@@ -443,7 +443,7 @@ public class Play_Page extends World
     
     public void batClick(){
         GreenfootImage batImg = new GreenfootImage("batmobile.png");
-        batImg.scale(batImg.getWidth() / 12, batImg.getHeight() / 12);
+        batImg.scale(batImg.getWidth() / 5, batImg.getHeight() / 5);
         batImg.rotate(180);
         if (Greenfoot.mouseClicked(clickBat) || Greenfoot.isKeyDown("4")){
             //player1 click
