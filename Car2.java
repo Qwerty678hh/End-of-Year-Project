@@ -113,5 +113,8 @@ public class Car2 extends Actor
         if (getY() == 0) {
             setLocation(getX(), 450);
         }
+        if(getX()==340){
+            setLocation(476, getY());
+        }
     }
 }

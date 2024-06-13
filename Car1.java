@@ -64,6 +64,9 @@ public class Car1 extends Actor {
     }
     
     private void checkLocation() {
+        if(getX()>=260){
+            setLocation(116, getY());
+        }
         if (getY() == 0) {
             setLocation(getX(), 450);
         }

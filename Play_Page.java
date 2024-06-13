@@ -121,50 +121,50 @@ public class Play_Page extends World
     }
 
     public void act(){
-    if (play == 1) {
-        if (Greenfoot.getRandomNumber(1000) < 1) {
-            addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
+        if (play == 1) {
+            if (Greenfoot.getRandomNumber(1000) < 1) {
+                addObject(new Car3(), Greenfoot.getRandomNumber(600), 0);
+            }
+            if (Greenfoot.getRandomNumber(100) < 1) {
+                addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
+            }
+            if (Greenfoot.getRandomNumber(1000) < 6)
+            {
+                addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
+            }
+            if (Greenfoot.getRandomNumber(1000) < 6)
+            {
+                addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
+            }
+            if (Greenfoot.getRandomNumber(1000) < 6)
+            {
+                addObject(new Coin(), Greenfoot.getRandomNumber(600), 0);
+            }
+            showScore();
+            showScore2();
+            showBlank();
+            results();
+            if (countDistance()) {
+                Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
+            }
+            if (time == 0) {
+                Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
+            }
         }
-        if (Greenfoot.getRandomNumber(100) < 1) {
-            addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
+        else if (play == 2) {
+            HandleClicks();
+            controlDot();
+            if(step < 1){
+                showText("Player 1, pick a car", 300, 50);
+            }
+            else if (step == 1){
+                showText("Player 2, pick a car", 300, 50);
+            }
+            
+            else if (step == 2){
+                showText("Ready? ----->", 300, 50);
+            }
         }
-        if (Greenfoot.getRandomNumber(1000) < 6)
-        {
-            addObject(new OilSpill(), Greenfoot.getRandomNumber(600), 0);
-        }
-        if (Greenfoot.getRandomNumber(1000) < 6)
-        {
-            addObject(new SpeedBoost(), Greenfoot.getRandomNumber(600), 0);
-        }
-        if (Greenfoot.getRandomNumber(1000) < 6)
-        {
-            addObject(new Coin(), Greenfoot.getRandomNumber(600), 0);
-        }
-        showScore();
-        showScore2();
-        showBlank();
-        results();
-        if (countDistance()) {
-            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
-        }
-        if (time == 0) {
-            Greenfoot.setWorld(new EndGame(initHealth1, initHealth2, initSpeed1, initSpeed2, car1Coins, car2Coins));
-        }
-    }
-    else if (play == 2) {
-        HandleClicks();
-        controlDot();
-        if(step < 1){
-            showText("Player 1, pick a car", 300, 50);
-        }
-        else if (step == 1){
-            showText("Player 2, pick a car", 300, 50);
-        }
-        
-        else if (step == 2){
-            showText("Ready? ----->", 300, 50);
-        }
-    }
     }
     
     public void addCar1Health(int damage) {
