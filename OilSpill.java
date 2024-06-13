@@ -14,7 +14,7 @@ public class OilSpill extends Actor
      */
     public OilSpill(){
         GreenfootImage image = getImage(); 
-        image.scale(image.getWidth() / 8, image.getHeight() / 8); 
+        image.scale(image.getWidth() / 12, image.getHeight() / 12); 
         setImage(image);
     }
     public void act()
@@ -28,7 +28,10 @@ public class OilSpill extends Actor
     }
     
     private void checkLocation() {
-        if (getY() == 599) {
+        if(getX()>=250 && getX()<=340){
+            getWorld().removeObject(this);
+        }
+        else if (getY() == 599) {
             getWorld().removeObject(this);
         }
     }
